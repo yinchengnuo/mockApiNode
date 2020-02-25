@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API测试</title>
+</head>
+<body>
+    <input type="file" name="file" id="file">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@yinchengnuo/webstorage-proxy@1.0.4/dist/webstorage-proxy.min.js"></script>
+    <script>
+
+        axios.post("http://192.168.0.14/api/order/submit_order", {
+        list: [
+            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "S", num: 1 },
+            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "M", num: 1 },
+            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "L", num: 1 },
+            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "XL", num: 1 },
+            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "XXL", num: 1 },
+            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "XXXL", num: 1 },
+            { name: "大卫博士精装款内裤", type: "男款（白色）", size: "XL", num: 20 },
+            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "S", num: 1 },
+            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "M", num: 1 },
+            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "L", num: 1 },
+            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "XL", num: 1 },
+            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "XXL", num: 1 },
+            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "XXXL", num: 1 },
+            { name: "大卫博士简约款内裤", type: "男款（白色）", size: "XL", num: 20 }
+        ]
+        }).then(res => {
+            console.log(res.data)
+        })
+
+        const storage = new WebStorageProxy('sessionStorage')
+        console.log(sessionStorage.getItem('name'), 123) //null
+
+        storage.name = 'yinchengnuo'
+        console.log(sessionStorage.getItem('name')) //yinchengnuo
+
+        // delete storage.name  //true
+        console.log(sessionStorage.getItem('name')) //null
+
+
+
+        document.getElementById('file').onchange = e => {
+            miniImg(e.target.files[0]).then(e => {
+                console.log(e)
+            })
+            // const reader = new FileReader()
+            // reader.onload = e => {
+            //     console.log(e.target.result.length)
+            //     const image = new Image()
+            //     const imageShow = new Image()
+            //     image.onload = () => {
+            //         const canvas = document.createElement('canvas')
+            //         canvas.width = image.width
+            //         canvas.height = image.height
+            //         canvas.getContext('2d').drawImage(image, 0, 0, image.width, image.height)
+            //         const miniURL = canvas.toDataURL('image/jpeg', 0.09)
+            //         console.log(miniURL.length)
+            //         const buffer = atob(miniURL.split(',')[1])
+            //         const bufferArray = new Uint8Array(buffer.length)
+            //         bufferArray.forEach((e, i) => e = buffer.charCodeAt[i])
+            //         const miniFile = new File([bufferArray], '123.jpg', { type: 'image/jpeg' })
+            //         console.log('压缩后：', (miniFile.size / 1024).toFixed(0) + 'KB')
+            //         imageShow.src = miniURL
+            //         // canvas.toBlob(blob => {
+            //         //     console.log(blob)
+            //         // })
+            //         document.body.append(imageShow)
+            //     }
+            //     image.src = e.target.result
+            // }
+            // reader.readAsDataURL(e.target.files[0])
+            // console.log('压缩前：', (e.target.files[0].size / 1024).toFixed(0) + 'KB')
+        }
+
+        function miniImg(file, q) {
+            return new Promise((resolve, reject) => {
+                console.log('压缩前：', (file.size / 1024).toFixed(2) + 'KB')
+                const reader = new FileReader()
+                reader.onload = e => {
+                    console.log(e.target.result.length)
+                    const image = new Image()
+                    image.onload = () => {
+                        const canvas = document.createElement('canvas')
+                        canvas.width = image.width
+                        canvas.height = image.height
+                        canvas.getContext('2d').drawImage(image, 0, 0, image.width, image.height)
+                        const buffer = atob(canvas.toDataURL('image/jpeg', q || 0.01).split(',')[1])
+                        const bufferArray = new Uint8Array(buffer.length)
+                        bufferArray.forEach((e, i) => e = buffer.charCodeAt[i])
+                        const miniFile = new File([bufferArray], file.name, { type: 'image/jpeg' })
+                        console.log('压缩后：', (miniFile.size / 1024).toFixed(0) + 'KB')
+                        resolve(miniFile)
+                    }
+                    image.src = e.target.result
+                }
+                reader.readAsDataURL(file)
+            })
+        }
+    
+    </script>
+    <!-- <script>
+        class MyPromise extends Promise {
+            constructor(fun) {
+                const p = super(fun)
+                var desc = Object.getOwnPropertyDescriptor(Promise.prototype, 'then')
+                // console.log(desc)
+                Object.defineProperty(this, 'then', desc)
+                // this.then = () => console.log(666)
+                return new Promise(fun)
+            }
+            // then(...args) {
+            //     console.log("then called")
+            //     // let data = super(...args)
+            //     console.log("then finished")
+            //     return super.then(...args)
+            // }
+        }
+
+        const promise = new MyPromise((s, j) => {
+            setTimeout(() => {
+                s()
+            }, 1234)
+        })
+
+        const p = new Proxy(promise, {
+            get(target, key) {
+                return Reflect.get(target, key)
+            }
+        })
+        p.then(e => {
+            console.log(1234)
+        })
+        // console.log(promise)
+        // const p = new Proxy(, {
+        //     get(val) {
+        //         console.log(val)
+        //         Reflect.get(val)
+        //     }
+        // })
+        // console.log(p, p.then)
+        // p.then(e => {
+        //     console.log(666)
+        // })   
+    </script> -->
+</body>
+</html>

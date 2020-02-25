@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #222;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  font-size: 80%;
+  font-weight: lighter;
+  background: radial-gradient(#1A5970 0%, #000 100%);
+  overflow: hidden;
+}
+
+canvas {
+  -webkit-filter: drop-shadow(0 0 3em black);
+          filter: drop-shadow(0 0 3em black);
+}
+
+video#myVideo {
+  position: absolute;
+  top: 0;
+}
