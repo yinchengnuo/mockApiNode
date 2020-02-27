@@ -117,7 +117,6 @@ module.exports = router => {
   });
 
   router.get("/app/message_read", async ctx => {
-    console.log(2333)
     await new Promise(resolve => setTimeout(() => resolve(), 2333));
     ctx.body = {
       code: 200,
@@ -205,6 +204,7 @@ module.exports = router => {
   });
 
   router.get("/app/chart", async ctx => {
+    await new Promise(resolve => setTimeout(() => resolve(), 567));
     let data = {};
     if (+ctx.query.type === 0) {
       if (+ctx.query.day === 30) {

@@ -36,9 +36,13 @@ app.ws.use(
 );
 
 app.use(cors()); //允许跨域
-app.use(body({ multipart: true })); //获取post请求体中间件
+app.use(body({
+  multipart: true
+})); //获取post请求体中间件
 app.use(static("./")); //静态文件中间件
-app.use(compress({ threshold: 2048 })); //gzip中间件
+app.use(compress({
+  threshold: 2048
+})); //gzip中间件
 app.use(router.routes()).use(router.allowedMethods()); //路由中间件
 
 require("./dwbszbs/app")(app); //启动大卫博士争霸赛项目
@@ -47,13 +51,10 @@ require("./dwbsapp/app")(app); //启动大卫博士手机App项目
 
 
 if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
-  app.listen(80, e => {
-    console.log("服务器启动成功");
-  });
+  app.listen(80, e => console.log("服务器启动成功"));
 } else {
   https
-    .createServer(
-      {
+    .createServer({
         key: fs.readFileSync("../https/https.key"),
         cert: fs.readFileSync("../https/https.pem")
       },
