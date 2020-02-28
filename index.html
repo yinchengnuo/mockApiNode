@@ -251,6 +251,16 @@
     
         
         <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+            $('body').append('<button id="button" style="height: 100px;">fdgsdhvshgl</button>');
+            $('#button').click(e => {
+                axios.get('https://yinchengnuo.com/dwbsapp/app/index').then(res => alert(res.data.message))
+            })
+
+        </script>
         
     
 
