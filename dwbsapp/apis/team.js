@@ -97,9 +97,9 @@ module.exports = router => {
           invite_name: "某邀请代理昵称1",
           apply_time: "2020-01-01-55",
           intive_status: 0, // 邀请人审核进度 0 未审核 1 通过 2 驳回
-          intive_reason: '', // 邀请人驳回原因
+          intive_cause: '', // 邀请人驳回原因
           up_status: 0, // 上级审核进度 0 未审核 1 通过 2 驳回
-          up_reason: "", // 上级驳回原因
+          up_cause: "", // 上级驳回原因
           real_name: "尹成诺",
           id_card_num: "123542569854512365",
           level: ""
@@ -111,9 +111,9 @@ module.exports = router => {
           invite_name: "某邀请代理昵称1",
           apply_time: "2020-01-01-55",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
-          intive_reason: '', // 邀请人驳回原因
+          intive_cause: '', // 邀请人驳回原因
           up_status: 0, // 上级审核进度 0 未审核 1 通过 2 驳回
-          up_reason: "", // 上级驳回原因
+          up_cause: "", // 上级驳回原因
           real_name: "尹成诺",
           id_card_num: "123542569854512365",
           level: ""
@@ -125,9 +125,9 @@ module.exports = router => {
           invite_name: "某邀请代理昵称1",
           apply_time: "2020-01-01-55",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
-          intive_reason: '', // 邀请人驳回原因
+          intive_cause: '', // 邀请人驳回原因
           up_status: 1, // 上级审核进度 0 未审核 1 通过 2 驳回
-          up_reason: "", // 上级驳回原因
+          up_cause: "", // 上级驳回原因
           real_name: "尹成诺",
           id_card_num: "123542569854512365",
           level: ""
@@ -139,9 +139,9 @@ module.exports = router => {
           invite_name: "某邀请代理昵称1",
           apply_time: "2020-01-01-55",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
-          intive_reason: '', // 邀请人驳回原因
+          intive_cause: '', // 邀请人驳回原因
           up_status: 2, // 上级审核进度 0 未审核 1 通过 2 驳回
-          up_reason: "大夫士大夫发生大法师的法", // 上级驳回原因
+          up_cause: "大夫士大夫发生大法师的法", // 上级驳回原因
           real_name: "尹成诺",
           id_card_num: "123542569854512365",
           level: ""
@@ -153,9 +153,9 @@ module.exports = router => {
           invite_name: "某邀请代理昵称1",
           apply_time: "2020-01-01-55",
           intive_status: 2, // 邀请人审核进度 0 未审核 1 通过 2 驳回
-          intive_reason: '邀请人驳回原因', // 邀请人驳回原因
+          intive_cause: '邀请人驳回原因', // 邀请人驳回原因
           up_status: 0, // 上级审核进度 0 未审核 1 通过 2 驳回
-          up_reason: "", // 上级驳回原因
+          up_cause: "", // 上级驳回原因
           real_name: "尹成诺",
           id_card_num: "123542569854512365",
           level: ""
@@ -170,9 +170,9 @@ module.exports = router => {
           invite_name: "某邀请代理昵称1",
           apply_time: "2020-01-01-55",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
-          intive_reason: '', // 邀请人驳回原因
+          intive_cause: '', // 邀请人驳回原因
           up_status: 0, // 上级审核进度 0 未审核 1 通过 2 驳回
-          up_reason: "", // 上级驳回原因
+          up_cause: "", // 上级驳回原因
           real_name: "尹成诺",
           id_card_num: "123542569854512365",
           level: "特级代理"
@@ -184,9 +184,9 @@ module.exports = router => {
           invite_name: "某邀请代理昵称1",
           apply_time: "2020-01-01-55",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
-          intive_reason: '', // 邀请人驳回原因
+          intive_cause: '', // 邀请人驳回原因
           up_status: 1, // 上级审核进度 0 未审核 1 通过 2 驳回
-          up_reason: "", // 上级驳回原因
+          up_cause: "", // 上级驳回原因
           real_name: "尹成诺",
           id_card_num: "123542569854512365",
           level: "特级代理"
@@ -198,9 +198,9 @@ module.exports = router => {
           invite_name: "某邀请代理昵称1",
           apply_time: "2020-01-01-55",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
-          intive_reason: '', // 邀请人驳回原因
+          intive_cause: '', // 邀请人驳回原因
           up_status: 2, // 上级审核进度 0 未审核 1 通过 2 驳回
-          up_reason: "上级驳回原因", // 上级驳回原因
+          up_cause: "上级驳回原因", // 上级驳回原因
           real_name: "尹成诺",
           id_card_num: "123542569854512365",
           level: "特级代理"

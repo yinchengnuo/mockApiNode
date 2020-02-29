@@ -4,7 +4,7 @@ module.exports = router => {
     ctx.body = {
       code: 200,
       message: "获取手机验证码成功",
-      data: { status: 1 } // 0 登录 1 注册
+      data: { status: 0 } // 0 登录 1 注册
     };
   });
 
