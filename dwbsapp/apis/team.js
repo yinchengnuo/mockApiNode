@@ -33,7 +33,7 @@ module.exports = router => {
     };
   });
 
-  router.get("/team/per_info", async ctx => {
+  router.get("/team/card_data", async ctx => {
     await new Promise(resolve => setTimeout(() => resolve(), 0));
     ctx.body = {
       code: 200,

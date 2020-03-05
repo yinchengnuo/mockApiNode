@@ -1,5 +1,33 @@
 const size = 15;
 const total = 50;
+const list = [];
+for (let i = 0; i < total; i++) {
+  list.push({
+    order_num: 1 + i,
+    forward: i % 2 === 0 ? true : false,
+    status: i % 2 === 0 ? 3 : 4,
+    goodList: [
+      {
+        id: 0,
+        price: 999,
+        storage: 0,
+        name: "大卫博士精装款内裤",
+        img:
+          "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp",
+        num: i + 1
+      },
+      {
+        id: 2,
+        price: 666,
+        storage: 66,
+        name: "大卫博士老人款内裤",
+        img:
+          "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg",
+        num: i + 1
+      }
+    ]
+  });
+}
 
 module.exports = router => {
   router.get("/order/del", async ctx => {
@@ -41,35 +69,6 @@ module.exports = router => {
       }
     };
   });
-
-  const list = [];
-  for (let i = 0; i < total; i++) {
-    list.push({
-      order_num: 1 + i,
-      forward: i % 2 === 0 ? true : false,
-      status: i % 2 === 0 ? 3 : 4,
-      goodList: [
-        {
-          id: 0,
-          price: 999,
-          storage: 0,
-          name: "大卫博士精装款内裤",
-          img:
-            "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp",
-          num: i + 1
-        },
-        {
-          id: 2,
-          price: 666,
-          storage: 66,
-          name: "大卫博士老人款内裤",
-          img:
-            "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg",
-          num: i + 1
-        }
-      ]
-    });
-  }
 
   router.get("/order/my_order", async ctx => {
     ctx.body = {

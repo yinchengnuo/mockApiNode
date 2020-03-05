@@ -9,6 +9,7 @@ const route = require("koa-route");
 const static = require("koa-static");
 const router = require("koa-router")();
 const compress = require("koa-compress");
+const networkInterfaces = require('os').networkInterfaces();
 const readdirPromise = util.promisify(fs.readdir);
 const readFilePromise = util.promisify(fs.readFile);
 
@@ -51,7 +52,11 @@ require("./dwbsapp/app")(app); //启动大卫博士手机App项目
 
 
 if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
-  app.listen(80, e => console.log("服务器启动成功"));
+  const iptable = {};
+  for (let dev in networkInterfaces) {
+    networkInterfaces[dev].forEach((details, alias) => details.family === 'IPv4' ? iptable[dev + (alias ? ':' + alias : '')] = details.address : '');
+  }
+  app.listen(80, e => console.log("服务器启动成功，局域网IP：" + iptable['WLAN:1']));
 } else {
   https
     .createServer({

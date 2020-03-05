@@ -1,9 +1,9 @@
 module.exports = router => {
   router.get("/login/judge_login", async ctx => {
-    await new Promise(resolve => setTimeout(() => resolve(), 5678));
+    await new Promise(resolve => setTimeout(() => resolve(), 3456));
     ctx.body = {
-      code: 200,
-      message: "获取手机验证码成功",
+      code: 300,
+      message: "获取手机验证码成功123",
       data: { status: 0 } // 0 登录 1 注册
     };
   });
@@ -41,6 +41,27 @@ module.exports = router => {
         token:
           "28_c-2cckjX66_T0cexCq4kGPka2TeW4VJLWZigCt4rED0H-D3812CozhXJYJs-D4OBix3Ge2wYpuJRCZKa0ot0rhN-VqbUooPPeRbA2PhotbY"
       }
+    };
+  });
+
+  router.post("/user/login", async ctx => {
+    console.log(ctx.request.body)
+    await new Promise(resolve => setTimeout(() => resolve(), 0));
+    ctx.body = {
+      code: 200,
+      message: "密码登陆成功",
+      data: {
+        token:
+          "28_c-2cckjX66_T0cexCq4kGPka2TeW4VJLWZigCt4rED0H-D3812CozhXJYJs-D4OBix3Ge2wYpuJRCZKa0ot0rhN-VqbUooPPeRbA2PhotbY"
+      }
+    };
+  });
+
+  router.post("/user/update_pass", async ctx => {
+    await new Promise(resolve => setTimeout(() => resolve(), 0));
+    ctx.body = {
+      code: 200,
+      message: "修改密码成功"
     };
   });
 };

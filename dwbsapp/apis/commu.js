@@ -32,7 +32,7 @@ module.exports = router => {
       avatar:
         "https://t8.baidu.com/it/u=3571592872,3353494284&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg?sec=1582962246&t=76ddb9aebe627c4a5bebc91cba9fab84",
       summary:
-        "我们精心准备了一个简单的十分钟介绍视频，方便你快速了解uni-app的主要特征：我们精心准备了一个简单的十分钟介绍视频，方便你快速了解uni-app的主要特征：",
+        "我们精心准备了一个简单的十分钟介绍视频，方便你快速了解uni-app的主要特征：",
       created_at: '1575111955739',
       imgurl: [
         "https://img-cdn-qiniu.dcloud.net.cn/uniapp/doc/poster.png",
