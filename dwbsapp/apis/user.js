@@ -9,7 +9,7 @@ module.exports = router => {
       code: 200,
       message: "获取用户信息成功",
       data: {
-        id: 18,
+        id: 8888,
         uuid: 851553114,
         nickname: "忙着长大",
         mobile: 18338112210,
@@ -50,7 +50,7 @@ module.exports = router => {
   });
 
   router.get("/user/user_cert", async ctx => {
-    console.log(2233)
+    await new Promise(resolve => setTimeout(() => resolve(), 1234));
     ctx.body = {
       code: 200,
       message: "确认身份认证完成"
@@ -74,7 +74,8 @@ module.exports = router => {
         auth_endtime: "1578699999999",
         url: '',
         phone: '18333333333',
-        realname: '阿西吧'
+        level_name: '特级代理',
+        realname: '尹成诺'
         // url: 'http://img4.imgtn.bdimg.com/it/u=3209370120,2008812818&fm=26&gp=0.jpg'
       }
     };

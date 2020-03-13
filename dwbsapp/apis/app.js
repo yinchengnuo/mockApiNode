@@ -1,10 +1,11 @@
 module.exports = router => {
 
   router.get("/app/index", async ctx => {
-    console.log(ctx.request.header)
+    console.log(ctx.request.header.authorization)
+    const code = ctx.request.header.authorization.length < 24 ? 401 : 200;
     await new Promise(resolve => setTimeout(() => resolve(), 0));
     ctx.body = {
-      code: 200,
+      code,
       message: "获取index首页数据成功",
       data: {
         news: [{
@@ -102,7 +103,8 @@ module.exports = router => {
       data: {
         version: "1.0.1",
         message: "修复若干BUG，并杀了一个程序员祭天。修复若干BUG，并杀了一个程序员祭天。修复若干BUG，并杀了一个程序员祭天。修复若干BUG，并杀了一个程序员祭天。修复若干BUG，并杀了一个程序员祭天。。修复若干BUG，并杀了一个程序员祭天。。修复若干BUG，并杀了一个程序员祭天。。修复若干BUG，并杀了一个程序员祭天。。修复若干BUG，并杀了一个程序员祭天。。修复若干BUG，并杀了一个程序员祭天。。修复若干BUG，并杀了一个程序员祭天。。修复若干BUG，并杀了一个程序员祭天。。修复若干BUG，并杀了一个程序员祭天。。修复若干BUG，并杀了一个程序员祭天。",
-        url: "https://yinchengnuo.com/static/new.apk"
+        // url: "https://yinchengnuo.com/static/new.apk"
+        url: "http://download.alicdn.com/wireless/taobao4android/latest/702757.apk"
       }
     };
   });

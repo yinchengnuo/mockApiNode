@@ -1,15 +1,15 @@
 module.exports = router => {
   router.get("/login/judge_login", async ctx => {
-    await new Promise(resolve => setTimeout(() => resolve(), 3456));
+    await new Promise(resolve => setTimeout(() => resolve(), 123));
     ctx.body = {
-      code: 300,
-      message: "获取手机验证码成功123",
+      code: 200,
+      message: "获取手机验证码成功",
       data: { status: 0 } // 0 登录 1 注册
     };
   });
 
   router.get("/login/login", async ctx => {
-    await new Promise(resolve => setTimeout(() => resolve(), 0));
+    await new Promise(resolve => setTimeout(() => resolve(), 1234));
     ctx.body = {
       code: 200, // 200 成功 // 300 绑定 // 400 冻结
       message: "手机登录成功",

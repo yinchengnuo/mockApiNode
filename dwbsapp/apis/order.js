@@ -6,14 +6,12 @@ for (let i = 0; i < total; i++) {
     order_num: 1 + i,
     forward: i % 2 === 0 ? true : false,
     status: i % 2 === 0 ? 3 : 4,
-    goodList: [
-      {
+    goodList: [{
         id: 0,
         price: 999,
         storage: 0,
         name: "大卫博士精装款内裤",
-        img:
-          "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp",
+        img: "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp",
         num: i + 1
       },
       {
@@ -21,8 +19,7 @@ for (let i = 0; i < total; i++) {
         price: 666,
         storage: 66,
         name: "大卫博士老人款内裤",
-        img:
-          "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg",
+        img: "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg",
         num: i + 1
       }
     ]
@@ -103,7 +100,8 @@ module.exports = router => {
       code: 200,
       message: "下级订单-已转单",
       data: {
-        size, list: list.slice(
+        size,
+        list: list.slice(
           (ctx.query.page - 1) * size,
           (ctx.query.page - 1) * size + size
         )
@@ -116,12 +114,10 @@ module.exports = router => {
       code: 200,
       message: "获取我的库存成功",
       data: {
-        list: [
-          {
+        list: [{
             price: 666,
-            name: "大卫博士精装款",
-            img:
-              "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp",
+            name: "大卫博士精装款内裤",
+            img: "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp",
             typeList: [
               {
                 name: "男款（黑色）",
@@ -136,17 +132,45 @@ module.exports = router => {
               {
                 name: "男款（蓝色）",
                 size: ["S", "M", "L", "XL", "XXL"],
-                num: ["0", "0", "0", "0", "0"]
-              }
+                num: ["0", "0", "0", "66", "0"]
+              },
+              {
+                name: "男款（黑色）",
+                size: ["S", "M", "L", "XL", "XXL"],
+                num: ["1", "1", "1", "1", "1"]
+              },
+              {
+                name: "男款（白色）",
+                size: ["S", "M", "L", "XL", "XXL"],
+                num: ["1", "1", "1", "1", "1"]
+              },
+              {
+                name: "男款（蓝色）",
+                size: ["S", "M", "L", "XL", "XXL"],
+                num: ["0", "0", "0", "66", "0"]
+              },
+              {
+                name: "男款（黑色）",
+                size: ["S", "M", "L", "XL", "XXL"],
+                num: ["1", "1", "1", "1", "1"]
+              },
+              {
+                name: "男款（白色）",
+                size: ["S", "M", "L", "XL", "XXL"],
+                num: ["1", "1", "1", "1", "1"]
+              },
+              {
+                name: "男款（蓝色）",
+                size: ["S", "M", "L", "XL", "XXL"],
+                num: ["0", "0", "0", "66", "0"]
+              },
             ]
           },
           {
             price: 666,
-            name: "大卫博士简约款",
-            img:
-              "https://img14.360buyimg.com/n7/jfs/t1/58382/32/4757/556896/5d27f33cE89c97b66/85ffb23daf13f59c.jpg",
-            typeList: [
-              {
+            name: "大卫博士简约款内裤",
+            img: "https://img14.360buyimg.com/n7/jfs/t1/58382/32/4757/556896/5d27f33cE89c97b66/85ffb23daf13f59c.jpg",
+            typeList: [{
                 name: "男款（黑色）",
                 size: ["S", "M", "L", "XL", "XXL"],
                 num: ["1", "1", "1", "1", "1"]
@@ -160,11 +184,9 @@ module.exports = router => {
           },
           {
             price: 666,
-            name: "大卫博士老人款",
-            img:
-              "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg",
-            typeList: [
-              {
+            name: "大卫博士老人款内裤",
+            img: "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg",
+            typeList: [{
                 name: "男款（黑色）",
                 size: ["S", "M", "L", "XL", "XXL"],
                 num: ["1", "1", "1", "1", "1"]
@@ -199,30 +221,26 @@ module.exports = router => {
           area: "南明区",
           address: "水水水水水水水水水水"
         },
-        remark:
-          "备注备注备注备注备注备注备注备注备备注备注备注备注备注备注备注备注备注备注备注备注备注",
-        goodList: [
-          {
+        remark: "备注备注备注备注备注备注备注备注备备注备注备注备注备注备注备注备注备注备注备注备注备注",
+        goodList: [{
             id: 0,
             price: 999,
             storage: 0,
             name: "大卫博士精装款内裤",
-            img:
-              "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp",
-            typeList: [
-              {
+            img: "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp",
+            typeList: [{
                 type_id: 0,
                 name: "男款（黑色）",
                 size: ["XL", "XXL"],
                 num: [10, 10],
-                size_id: [774, 775]
+                size_id: [771, 772]
               },
               {
                 type_id: 1,
                 name: "男款（白色）",
                 size: ["XL", "XXL"],
                 num: [10, 10],
-                size_id: [774, 775]
+                size_id: [773, 774]
               }
             ]
           },
@@ -231,22 +249,20 @@ module.exports = router => {
             price: 666,
             storage: 66,
             name: "大卫博士老人款内裤",
-            img:
-              "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg",
-            typeList: [
-              {
+            img: "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg",
+            typeList: [{
                 type_id: 2,
                 name: "男款（黑色）",
                 size: ["XL", "XXL"],
                 num: [10, 10],
-                size_id: [774, 775]
+                size_id: [775, 776]
               },
               {
                 type_id: 3,
                 name: "男款（白色）",
                 size: ["XL", "XXL"],
                 num: [10, 10],
-                size_id: [774, 775]
+                size_id: [777, 778]
               }
             ]
           }

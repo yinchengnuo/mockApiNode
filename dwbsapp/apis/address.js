@@ -1,6 +1,6 @@
 module.exports = router => {
   router.get("/user/show_address", async ctx => {
-    await new Promise(resolve => setTimeout(() => resolve(), 0));
+    await new Promise(resolve => setTimeout(() => resolve(), 1234));
     ctx.body = {
       code: 200,
       message: "获取地址成功",
@@ -13,7 +13,7 @@ module.exports = router => {
             provice: "贵州省",
             city: "贵阳市",
             area: "南明区",
-            address: "水水水水水水水水水水"
+            address: "水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水"
           },
           {
             id: "2",
@@ -47,7 +47,7 @@ module.exports = router => {
     };
   });
   router.get("/user/del_address", async ctx => {
-    await new Promise(resolve => setTimeout(() => resolve(), 0));
+    await new Promise(resolve => setTimeout(() => resolve(), 1213));
     ctx.body = {
       code: 200,
       message: "删除地址成功"

@@ -1,4 +1,4 @@
-const total = 200;
+const total = 12;
 const size = 15;
 
 module.exports = router => {
@@ -78,10 +78,11 @@ module.exports = router => {
       data: {
         total,
         size,
-        list: list.slice(
-          (ctx.query.page - 1) * size,
-          (ctx.query.page - 1) * size + size
-        )
+        // list: list.slice(
+        //   (ctx.query.page - 1) * size,
+        //   (ctx.query.page - 1) * size + size
+        // )
+        list: []
       }
     };
   });
