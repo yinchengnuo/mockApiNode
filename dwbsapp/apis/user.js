@@ -72,11 +72,11 @@ module.exports = router => {
         code: "DWBS0096512JanJan0112584563254",
         auth_startime: "1578624473840",
         auth_endtime: "1578699999999",
-        url: '',
+        url: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1667848101,3839921303&fm=26&gp=0.jpg',
         phone: '18333333333',
         level_name: '特级代理',
-        realname: '尹成诺'
-        // url: 'http://img4.imgtn.bdimg.com/it/u=3209370120,2008812818&fm=26&gp=0.jpg'
+        realname: '尹成诺',
+        level_name: '特级代理',
       }
     };
   });

@@ -12,7 +12,7 @@ module.exports = router => {
             storage: 111,
             name: "大卫博士精装款内裤",
             type: ["男款黑色", "男款白色"],
-            type_id: [774, 775],
+            type_id: [771, 772],
             img:
               "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp"
           },
@@ -22,7 +22,7 @@ module.exports = router => {
             storage: 33,
             name: "大卫博士简约款内裤",
             type: ["男款黑色", "男款白色"],
-            type_id: [774, 775],
+            type_id: [773, 774],
             img:
               "https://img14.360buyimg.com/n7/jfs/t1/58382/32/4757/556896/5d27f33cE89c97b66/85ffb23daf13f59c.jpg"
           },
@@ -32,7 +32,7 @@ module.exports = router => {
             storage: 66,
             name: "大卫博士老人款内裤",
             type: ["男款黑色", "男款白色"],
-            type_id: [774, 775],
+            type_id: [775, 776],
             img:
               "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg"
           }

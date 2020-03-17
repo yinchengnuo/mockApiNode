@@ -111,7 +111,7 @@ module.exports = router => {
 
   router.get("/app/feedback", async ctx => {
     console.log(ctx.request.query)
-    await new Promise(resolve => setTimeout(() => resolve(), 3456));
+    await new Promise(resolve => setTimeout(() => resolve(), 0));
     ctx.body = {
       code: 200,
       message: "问题反馈成功"
@@ -119,7 +119,7 @@ module.exports = router => {
   });
 
   router.get("/app/message_read", async ctx => {
-    await new Promise(resolve => setTimeout(() => resolve(), 2333));
+    await new Promise(resolve => setTimeout(() => resolve(), 0));
     ctx.body = {
       code: 200,
       message: "设置消息已读成功"
@@ -127,7 +127,7 @@ module.exports = router => {
   });
 
   router.get("/app/message", async ctx => {
-    await new Promise(resolve => setTimeout(() => resolve(), 123));
+    await new Promise(resolve => setTimeout(() => resolve(), 0));
     ctx.body = {
       code: 200,
       message: "获取系统信息成功",
@@ -136,13 +136,13 @@ module.exports = router => {
             title: "学位争霸赛新赛季开启",
             time: 1577962676384,
             message: "新赛季开启时间暂定为2019年12月1日开启，报名时间 为12月1日-12月4日",
-            url: "https://www.taobao.com/"
+            url: "https://www.baidu.com/"
           },
           {
             title: "学位争霸赛新赛季开启",
             time: 1577962676384,
             message: "新赛季开启时间暂定为2019年12月1日开启，报名时间 为12月1日-12月4日",
-            url: "https://www.taobao.com/"
+            url: ""
           }
         ],
         myOrder: [{
@@ -206,7 +206,7 @@ module.exports = router => {
   });
 
   router.get("/app/chart", async ctx => {
-    await new Promise(resolve => setTimeout(() => resolve(), 567));
+    await new Promise(resolve => setTimeout(() => resolve(), 0));
     let data = {};
     if (+ctx.query.type === 0) {
       if (+ctx.query.day === 30) {

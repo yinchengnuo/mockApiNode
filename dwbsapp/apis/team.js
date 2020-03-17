@@ -41,13 +41,13 @@ module.exports = router => {
       data: {
         id: 654,
         team_num: 666,
-        nickname: "昵称",
+        nickname: "昵称忙着长大",
         level: "特级代理",
         real_name: "尹成诺",
         mobile: "18338112210",
         up_nickname: "可乐啊",
         recom_nickname: "可乐啊",
-        avatar: "http://img3.imgtn.bdimg.com/it/u=1107263072,1224997471&fm=26&gp=0.jpg"
+        avatar: "https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3256100974,305075936&fm=26&gp=0.jpg"
       }
     };
   });
