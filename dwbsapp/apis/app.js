@@ -38,7 +38,7 @@ module.exports = router => {
           type: 0, // 文章
           id: Math.floor(Math.random() * 1000000),
           title: "常来微聊背后的逻辑常来微聊背后的逻辑常来微聊背后的逻辑",
-          avatar: "http://img2.imgtn.bdimg.com/it/u=1225597740,615370700&fm=11&gp=0.jpg",
+          avatar: "https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1937239222,1904916394&fm=26&gp=0.jpg",
           author: "大卫博士官方",
           off: 1, // 官方
           summary: "很多人都有自己的梦想！很多人都有自己的使命！很多人都想在某个领域尽情地释放自己，就像他一样很多人都有情地释放自己，就像他一样很多人都有",

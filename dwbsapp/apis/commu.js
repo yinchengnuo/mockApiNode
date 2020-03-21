@@ -54,7 +54,7 @@ module.exports = router => {
         size,
         list: ctx.query.page == 1 && ctx.query.type == 0 ? [
           {
-            url: 'https://www.huya.com/',
+            url: 'https://m.huya.com/',
             type: 2,
             title: '大卫博士跨年联欢会正在抽奖快来观看大卫博士跨年联欢会正在抽奖快来观看',
             created_at: '1575111955739',

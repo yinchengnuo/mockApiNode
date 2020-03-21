@@ -53,7 +53,8 @@ module.exports = router => {
   });
 
   router.get("/team/money", async ctx => {
-    await new Promise(resolve => setTimeout(() => resolve(), 0));
+    await new Promise(resolve => setTimeout(() => resolve(), 123));
+    console.log(ctx.request.query);
     ctx.body = {
       code: 200,
       message: "获取团队销售业绩成功",
@@ -95,7 +96,7 @@ module.exports = router => {
           apply_name: "注册申请人昵称1",
           apply_phone: 18338112210,
           invite_name: "某邀请代理昵称1",
-          apply_time: "2020-01-01-55",
+          apply_time: "2020-01-01 08:00",
           intive_status: 0, // 邀请人审核进度 0 未审核 1 通过 2 驳回
           intive_cause: '', // 邀请人驳回原因
           up_status: 0, // 上级审核进度 0 未审核 1 通过 2 驳回
@@ -109,7 +110,7 @@ module.exports = router => {
           apply_name: "注册申请人昵称2",
           apply_phone: 18338112210,
           invite_name: "某邀请代理昵称1",
-          apply_time: "2020-01-01-55",
+          apply_time: "2020-01-01 08:00",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
           intive_cause: '', // 邀请人驳回原因
           up_status: 0, // 上级审核进度 0 未审核 1 通过 2 驳回
@@ -123,7 +124,7 @@ module.exports = router => {
           apply_name: "注册申请人昵称7",
           apply_phone: 18338112210,
           invite_name: "某邀请代理昵称1",
-          apply_time: "2020-01-01-55",
+          apply_time: "2020-01-01 08:00",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
           intive_cause: '', // 邀请人驳回原因
           up_status: 1, // 上级审核进度 0 未审核 1 通过 2 驳回
@@ -137,11 +138,11 @@ module.exports = router => {
           apply_name: "注册申请人昵称8",
           apply_phone: 18338112210,
           invite_name: "某邀请代理昵称1",
-          apply_time: "2020-01-01-55",
+          apply_time: "2020-01-01 08:00",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
           intive_cause: '', // 邀请人驳回原因
           up_status: 2, // 上级审核进度 0 未审核 1 通过 2 驳回
-          up_cause: "大夫士大夫发生大法师的法", // 上级驳回原因
+          up_cause: "大夫士大夫发生大法师", // 上级驳回原因
           real_name: "尹成诺",
           id_card_num: "123542569854512365",
           level: ""
@@ -151,7 +152,7 @@ module.exports = router => {
           apply_name: "注册申请人昵称3",
           apply_phone: 18338112210,
           invite_name: "某邀请代理昵称1",
-          apply_time: "2020-01-01-55",
+          apply_time: "2020-01-01 08:00",
           intive_status: 2, // 邀请人审核进度 0 未审核 1 通过 2 驳回
           intive_cause: '邀请人驳回原因', // 邀请人驳回原因
           up_status: 0, // 上级审核进度 0 未审核 1 通过 2 驳回
@@ -168,7 +169,7 @@ module.exports = router => {
           apply_name: "注册申请人昵称4",
           apply_phone: 18338112210,
           invite_name: "某邀请代理昵称1",
-          apply_time: "2020-01-01-55",
+          apply_time: "2020-01-01 08:00",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
           intive_cause: '', // 邀请人驳回原因
           up_status: 0, // 上级审核进度 0 未审核 1 通过 2 驳回
@@ -182,7 +183,7 @@ module.exports = router => {
           apply_name: "注册申请人昵称5",
           apply_phone: 18338112210,
           invite_name: "某邀请代理昵称1",
-          apply_time: "2020-01-01-55",
+          apply_time: "2020-01-01 08:00",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
           intive_cause: '', // 邀请人驳回原因
           up_status: 1, // 上级审核进度 0 未审核 1 通过 2 驳回
@@ -196,7 +197,7 @@ module.exports = router => {
           apply_name: "注册申请人昵称6",
           apply_phone: 18338112210,
           invite_name: "某邀请代理昵称1",
-          apply_time: "2020-01-01-55",
+          apply_time: "2020-01-01 08:00",
           intive_status: 1, // 邀请人审核进度 0 未审核 1 通过 2 驳回
           intive_cause: '', // 邀请人驳回原因
           up_status: 2, // 上级审核进度 0 未审核 1 通过 2 驳回
