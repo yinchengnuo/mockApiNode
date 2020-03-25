@@ -20,8 +20,7 @@ module.exports = router => {
         order_num1: 11,
         order_num2: 22,
         order_num3: 33,
-        avatar:
-          "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1467242771,949293240&fm=26&gp=0.jpg"
+        avatar: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1467242771,949293240&fm=26&gp=0.jpg"
       }
     };
   });
@@ -105,7 +104,7 @@ module.exports = router => {
         isActive: true,
         updata: 1,
         start: '1578656660523',
-        end: '1587609413221',
+        end: '1589609413221',
         top_money: 2000,
         crown_money: 200000,
       }
@@ -113,11 +112,14 @@ module.exports = router => {
   });
 
   router.post("/proxy/upload", async ctx => {
-    const num = (await readdirPromise(path.join(__dirname, '../../static/images/'))).length;
-    const type = ctx.request.files.img.name.split('.')[ctx.request.files.img.name.split('.').length - 1];
-    const reader = fs.createReadStream(ctx.request.files.img.path);
-    const writer = fs.createWriteStream(path.join(__dirname, `../../static/images/${num}.${type}`));
-    reader.pipe(writer);
+    const fileList = fs.readdirSync(path.join(__dirname, '../../static/images/'));
+    fileList.forEach(file => fs.unlinkSync(path.join(__dirname, `../../static/images/${file}`))) 
+    ctx.request.files.files.forEach(item => {
+      const reader = fs.createReadStream(item.path);
+      const writer = fs.createWriteStream(path.join(__dirname, `../../static/images/${Date.now() + '' + Math.random().toString().replace('0.', '')}.jpg`));
+      reader.pipe(writer);
+    })
+
     ctx.body = {
       code: 200,
       message: "上传付款截图成功",
