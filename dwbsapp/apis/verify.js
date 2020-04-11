@@ -1,5 +1,6 @@
 module.exports = router => {
   router.get("/login/judge_login", async ctx => {
+    console.log(ctx.request.query)
     await new Promise(resolve => setTimeout(() => resolve(), 123));
     ctx.body = {
       code: 200,

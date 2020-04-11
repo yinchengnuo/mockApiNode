@@ -56,37 +56,37 @@ module.exports = router => {
       ],
       typeList: [
         {
-          type_id: 0,
+          type_id: '0',
           name: "男款(黑色)",
           size: ["S", "M", "L", "XL", "XXL", "XXXL"],
           size_id: ["773", "774", "775", "776", "777", "777"]
         },
         {
-          type_id: 1,
+          type_id: '1',
           name: "男款(白色)",
           size: ["S", "M", "L", "XL", "XXL", "XXXL"],
           size_id: ["773", "774", "775", "776", "777", "777"]
         },
         {
-          type_id: 2,
+          type_id: '2',
           name: "男款(红色)",
           size: ["S", "M", "L", "XL", "XXL", "XXXL"],
           size_id: ["773", "774", "775", "776", "777", "777"]
         },
         {
-          type_id: 3,
+          type_id: '3',
           name: "女款(黑色)",
           size: ["S", "M", "L", "XL"],
           size_id: ["773", "774", "775", "776"]
         },
         {
-          type_id: 4,
+          type_id: '4',
           name: "女款(白色)",
           size: ["S", "M", "L", "XL", "XXL"],
           size_id: ["773", "774", "775", "776", "777"]
         },
         {
-          type_id: 5,
+          type_id: '5',
           name: "女款(肉色)",
           size: ["S", "M", "L", "XL"],
           size_id: ["773", "774", "775", "776"]
@@ -117,7 +117,7 @@ module.exports = router => {
     }
     ctx.body = {
       code: 200,
-      message: "大卫博士手机App前端开发MOCK接口",
+      message: "获取商品详情成功",
       data
     };
   });

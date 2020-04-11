@@ -1,54 +1,35 @@
+const fs = require("fs");
+
 module.exports = router => {
     router.post('/user/login', async ctx => {
-        // const result = await new Promise((resolve, reject) => {
-        //     global.User.find(ctx.request.body, (err, data) => {
-        //         if (err) reject()
-        //         resolve(data)
-        //     })
-        // })
-        // if (result.length) {
-        //     ctx.body = {
-        //         code: 200,
-        //         message: 'token签发成功',
-        //         data: {
-        //             token: 'token.token.token-token-token'
-        //         }
-        //     }
-        // } else {
-        //     ctx.body = {
-        //         code: 100,
-        //         message: '用户名或密码错误'
-        //     }
-        // }
-        ctx.body = {
-            code: 200,
-            message: 'token签发成功',
-            data: {
-                token: 'token.token.token-token-token'
+        const result = JSON.parse(fs.readFileSync('./admin/data/account.json').toString()).find(e => e.username == ctx.request.body.username)
+        if (result && result.password == ctx.request.body.password) {
+            ctx.body = {
+                code: 200,
+                message: '登陆成功',
+                data: { token: encodeURIComponent(ctx.request.body.username) }
+            }
+        } else {
+            ctx.body = {
+                code: 300,
+                message: '用户名或者密码错误'
             }
         }
     })
 
     router.get('/user/info', async ctx => {
+        const username = decodeURIComponent(ctx.request.header.authorization.split(' ')[1])
+        const user = JSON.parse(fs.readFileSync('./admin/data/account.json').toString()).find(e => e.username == username)
+        user.routes = JSON.parse(fs.readFileSync('./admin/data/role.json').toString()).find(e => e.name === user.role).routes
         ctx.body = {
             code: 200,
             message: '获取用户信息成功',
             data: {
-                routes: '["admin"]',
-                avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-                name: '大卫博士后台超级管理员',
-                season_list: [
-                    {
-                        season: 18,
-                        start: 1570204800000,
-                        end: 1572364799000
-                    },
-                    {
-                        season: 17,
-                        start: 1567612800000,
-                        end: 1569427199000
-                    },
-                ]
+                id: user.id,
+                name: user.username,
+                avatar: user.avatar,
+                role: user.role,
+                routes: user.routes
             }
         }
     })
