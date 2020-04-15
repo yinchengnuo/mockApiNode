@@ -23,14 +23,8 @@ app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
 router.post("/gitHook", async (ctx) => {
-  exec('git pull', (err, stdout, stderr) => {
-    if(err) {
-      console.log('get weather api error:'+stderr)
-    } else {
-      console.log(JSON.parse(stdout))
-    }
-  })
-  ctx.body = "312312"
+  exec('git pull')
+  ctx.body = ""
 })
 app.use(router.routes()).use(router.allowedMethods()); //路由中间件
 
