@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "set NODE_ENV=development && npx nodemon ./app.js",
-    "pub": "git add . && git commit -m 'publish' && git push"
+    "pub": "git add . && git commit -m 'publish' && git push",
+    "start": "pm2 start ./app.js --watch --name app"
   },
   "keywords": [],
   "author": "",
