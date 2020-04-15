@@ -28,9 +28,10 @@ router.post("/gitHook", async (ctx) => {
 })
 app.use(router.routes()).use(router.allowedMethods()); //路由中间件
 
-require("./dwbszbs/app")(app); //启动大卫博士争霸赛项目
-require("./admin/app")(app); //启动vue后台管理系统项目
-require("./dwbsapp/app")(app); //启动大卫博士手机App项目
+require("./dwbszbs/app")(app); //启动大卫博士争霸赛MOCK
+require("./admin/app")(app); //启动vue后台管理系统MOCK
+require("./dwbsapp/app")(app); //启动大卫博士手机AppMOCK
+require('./api.js')(app); // 启动第三方api接口
 
 if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   app.listen(80, () => console.log("服务器启动成功"))
