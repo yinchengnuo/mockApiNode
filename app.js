@@ -30,7 +30,7 @@ router.post("/gitHook", async (ctx) => {
       console.log(JSON.parse(stdout))
     }
   })
-  ctx.body = ""
+  ctx.body = "312312"
 })
 app.use(router.routes()).use(router.allowedMethods()); //路由中间件
 
