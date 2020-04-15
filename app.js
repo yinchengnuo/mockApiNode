@@ -22,10 +22,13 @@ app.use(body({ multipart: true })) //获取post请求体中间件
 app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
-router.post("/gitHook", async (ctx) => {
+router.post("/gitHook", async (ctx) => { // github hook
   exec('git pull')
   ctx.body = ""
 })
+router.get('/fuliaoWebappVue', async(ctx) => ctx.redirect('http://yinchengnuo.com/fuliaoWebappVue'))
+router.get('/livePlayingSchemes', async(ctx) => ctx.redirect('http://yinchengnuo.com/livePlayingSchemes'))
+router.get('/fuliaoLiveWithoutFlash', async(ctx) => ctx.redirect('http://yinchengnuo.com/fuliaoLiveWithoutFlash'))
 app.use(router.routes()).use(router.allowedMethods()); //路由中间件
 
 require("./dwbszbs/app")(app); //启动大卫博士争霸赛MOCK
