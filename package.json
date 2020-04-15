@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "set NODE_ENV=development && npx nodemon ./app.js"
+    "dev": "set NODE_ENV=development && npx nodemon ./app.js",
+    "publish": "git add . && git commit -m 'publish' && git push"
   },
   "keywords": [],
   "author": "",
