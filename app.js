@@ -8,7 +8,6 @@ const static = require("koa-static");
 const router = require("koa-router")();
 const compress = require("koa-compress");
 const exec = require('child_process').exec;
-const sslify = require('koa-sslify').default;
 const { historyApiFallback } = require("koa2-connect-history-api-fallback");
 const app = require("koa-websocket")(new Koa());
 
@@ -19,7 +18,6 @@ app.ws.use(
 );
 
 app.use(cors()); //允许跨域
-app.use(sslify()); // http -> https
 app.use(body({ multipart: true })) //获取post请求体中间件
 app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
@@ -33,7 +31,6 @@ app.use(router.routes()).use(router.allowedMethods()); //路由中间件
 require("./dwbszbs/app")(app); //启动大卫博士争霸赛MOCK
 require("./admin/app")(app); //启动vue后台管理系统MOCK
 require("./dwbsapp/app")(app); //启动大卫博士手机AppMOCK
-require('./api.js')(app); // 启动第三方api接口
 
 if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   app.listen(80, () => console.log("服务器启动成功"))
@@ -42,4 +39,22 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
     key: fs.readFileSync("../https/https.key"),
     cert: fs.readFileSync("../https/https.pem")
   }, app.callback()).listen(443, async () => console.log("服务器启动成功"))
+
+  const app80 = new Koa();
+
+  app80.use(cors());  //开启跨域
+  app80.use(body()); //获取post请求体中间件
+  app80.use(compress({ threshold: 2048 })); //gzip中间件
+  
+  const router80 = require('koa-router')()
+  router80.get('/', async(ctx) => ctx.redirect('https://yinchengnuo.com'))
+  app80.use(router.routes()).use(router.allowedMethods());
+  
+  require('./util/api.js')(app80); //api接口
+  require('./fuliaoLiveWithoutFlash/app')(app80); //富聊后台视频聊优化建议方案
+  require('./livePlayingSchemes/app')(app80); //web前端常用直播流播放方案（PC端）
+  require('./fuliaoWebappVue/app')(app80); //富聊webapp移动端Vue开发版
+  
+  app80.listen(80);
+  console.log('服务器创建成功:80')
 }
