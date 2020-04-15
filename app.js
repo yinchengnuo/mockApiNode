@@ -9,9 +9,10 @@ const route = require("koa-route");
 const static = require("koa-static");
 const router = require("koa-router")();
 const compress = require("koa-compress");
-const networkInterfaces = require('os').networkInterfaces();
 const readdirPromise = util.promisify(fs.readdir);
 const readFilePromise = util.promisify(fs.readFile);
+const networkInterfaces = require('os').networkInterfaces();
+const { historyApiFallback } = require('koa2-connect-history-api-fallback');
 
 const readSrc = async dirname => {
   //读取项目代码
