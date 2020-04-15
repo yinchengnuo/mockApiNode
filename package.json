@@ -20,6 +20,7 @@
     "koa-cors": "0.0.16",
     "koa-route": "^3.2.0",
     "koa-router": "^7.4.0",
+    "koa-sslify": "^4.0.3",
     "koa-static": "^5.0.0",
     "koa-websocket": "^6.0.0",
     "koa2-connect-history-api-fallback": "^0.1.2",

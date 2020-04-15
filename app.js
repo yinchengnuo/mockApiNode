@@ -7,7 +7,8 @@ const route = require("koa-route");
 const static = require("koa-static");
 const router = require("koa-router")();
 const compress = require("koa-compress");
-const exec = require('child_process').exec; 
+const exec = require('child_process').exec;
+const sslify = require('koa-sslify').default;
 const { historyApiFallback } = require("koa2-connect-history-api-fallback");
 const app = require("koa-websocket")(new Koa());
 
@@ -18,6 +19,7 @@ app.ws.use(
 );
 
 app.use(cors()); //允许跨域
+app.use(sslify()); // http -> https
 app.use(body({ multipart: true })) //获取post请求体中间件
 app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
