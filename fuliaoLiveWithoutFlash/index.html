@@ -16,7 +16,7 @@
             methods: {
                 rander() {
                     for (let i = 0; i < this.list.length; i++) {
-                        var src = this.list[i].pullUrl.replace('rtmp', 'http') + '.m3u8';
+                        var src = this.list[i].pullUrl.replace('rtmp', 'https') + '.m3u8';
                         ((i, src) => {
                             videojs('live' + i, {}, function onPlayerReady() {
                                 this.src({
