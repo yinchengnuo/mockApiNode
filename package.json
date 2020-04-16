@@ -23,7 +23,6 @@
     "koa-sslify": "^4.0.3",
     "koa-static": "^5.0.0",
     "koa-websocket": "^6.0.0",
-    "koa2-connect-history-api-fallback": "^0.1.2",
     "nodemon": "^1.19.2"
   }
 }

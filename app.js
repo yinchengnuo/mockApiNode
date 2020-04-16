@@ -8,7 +8,6 @@ const static = require("koa-static");
 const router = require("koa-router")();
 const compress = require("koa-compress");
 const exec = require('child_process').exec;
-const { historyApiFallback } = require("koa2-connect-history-api-fallback");
 const app = require("koa-websocket")(new Koa());
 
 app.ws.use(
@@ -19,6 +18,14 @@ app.ws.use(
 
 app.use(cors()); //允许跨域
 app.use(body({ multipart: true })) //获取post请求体中间件
+app.use(async (ctx, next) => {
+  const path = '/adminVueElement/'
+  await next();
+  if (ctx.response.status === 404 && ctx.request.url.includes(path)) {
+    ctx.type = 'text/html; charset=utf-8'
+    ctx.body= fs.readFileSync('.' + path + 'index.html')
+  }
+})
 app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
