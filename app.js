@@ -18,12 +18,20 @@ app.ws.use(
 
 app.use(cors()); //允许跨域
 app.use(body({ multipart: true })) //获取post请求体中间件
-app.use(async (ctx, next) => {
-  const path = '/adminVueElement/'
-  await next();
-  if (ctx.response.status === 404 && ctx.request.url.includes(path)) {
-    ctx.type = 'text/html; charset=utf-8'
-    ctx.body= fs.readFileSync('.' + path + 'index.html')
+app.use(async (ctx, next) => { // history 中间件
+  const path = '/adminVueElement/' // 需要判断的路径
+  await next() // 等待请求执行完毕
+  if (ctx.response.status === 404 && ctx.request.url.includes(path)) { // 判断是否符合条件
+    ctx.type = 'text/html; charset=utf-8' // 修改响应类型
+    ctx.body= fs.readFileSync('.' + path + 'index.html') // 修改响应体
+  }
+})
+app.use(async (ctx, next) => { // history 中间件
+  const path = '/learnReact/' // 需要判断的路径
+  await next() // 等待请求执行完毕
+  if (ctx.response.status === 404 && ctx.request.url.includes(path)) { // 判断是否符合条件
+    ctx.type = 'text/html; charset=utf-8' // 修改响应类型
+    ctx.body= fs.readFileSync('.' + path + 'index.html') // 修改响应体
   }
 })
 app.use(static("./")); //静态文件中间件
