@@ -2,6 +2,7 @@ const router = require('koa-router')({ prefix: '/admin' });
 
 module.exports = app => {
 
+    require('./apis/cl')(router);
     require('./apis/index')(router);  //首页
     require('./apis/role')(router);
     require('./apis/user')(router);

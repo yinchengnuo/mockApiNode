@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +7,46 @@
     <title>API测试</title>
 </head>
 <body>
+    <audio src="" controls="controls"></audio>
     <input type="file" name="file" id="file">
+    <script src="https://benzleung.github.io/benz-amr-recorder/BenzAMRRecorder.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@yinchengnuo/webstorage-proxy@1.0.4/dist/webstorage-proxy.min.js"></script>
     <script>
 
-        axios.post("http://192.168.0.14/api/order/submit_order", {
-        list: [
-            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "S", num: 1 },
-            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "M", num: 1 },
-            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "L", num: 1 },
-            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "XL", num: 1 },
-            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "XXL", num: 1 },
-            { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "XXXL", num: 1 },
-            { name: "大卫博士精装款内裤", type: "男款（白色）", size: "XL", num: 20 },
-            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "S", num: 1 },
-            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "M", num: 1 },
-            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "L", num: 1 },
-            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "XL", num: 1 },
-            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "XXL", num: 1 },
-            { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "XXXL", num: 1 },
-            { name: "大卫博士简约款内裤", type: "男款（白色）", size: "XL", num: 20 }
-        ]
-        }).then(res => {
-            console.log(res.data)
-        })
+var amr = new BenzAMRRecorder();
+amr.initWithUrl('http://api.woaidakele.cn/20200420190906500.amr').then(function() {
+  amr.play();
+});
+
+        // axios.get("http://api.woaidakele.cn/20200420190906500.amr", {
+        //     responseType: 'blob'
+        // }).then(({ data }) => {
+        //     readBlob(data, function(data) {
+        //         playAmrArray(data);
+        //     });
+        // })
+
+        // axios.post("http://192.168.0.14/api/order/submit_order", {
+        // list: [
+        //     { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "S", num: 1 },
+        //     { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "M", num: 1 },
+        //     { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "L", num: 1 },
+        //     { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "XL", num: 1 },
+        //     { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "XXL", num: 1 },
+        //     { name: "大卫博士精装款内裤", type: "男款（黑色）", size: "XXXL", num: 1 },
+        //     { name: "大卫博士精装款内裤", type: "男款（白色）", size: "XL", num: 20 },
+        //     { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "S", num: 1 },
+        //     { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "M", num: 1 },
+        //     { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "L", num: 1 },
+        //     { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "XL", num: 1 },
+        //     { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "XXL", num: 1 },
+        //     { name: "大卫博士简约款内裤", type: "男款（黑色）", size: "XXXL", num: 1 },
+        //     { name: "大卫博士简约款内裤", type: "男款（白色）", size: "XL", num: 20 }
+        // ]
+        // }).then(res => {
+        //     console.log(res.data)
+        // })
 
         const storage = new WebStorageProxy('sessionStorage')
         console.log(sessionStorage.getItem('name'), 123) //null
