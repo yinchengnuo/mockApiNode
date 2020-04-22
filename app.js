@@ -38,7 +38,7 @@ app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
 router.post("/gitHook", async (ctx) => { // github hook
-  exec('git pull')
+  exec('git reset --hard && git pull')
   ctx.body = ""
 })
 app.use(router.routes()).use(router.allowedMethods()); //路由中间件
