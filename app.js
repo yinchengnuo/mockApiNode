@@ -62,14 +62,16 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   app80.use(compress({ threshold: 2048 })); //gzip中间件
   
   const router80 = require('koa-router')()
-  router80.get('/', async(ctx) => ctx.redirect('https://yinchengnuo.com'))
-  app80.use(router.routes()).use(router.allowedMethods());
+  router80.get('/', async(ctx) => {
+    // ctx.redirect('https://yinchengnuo.com')
+    console.log(2333)
+  })
+  app80.use(router.routes()).use(router.allowedMethods())
   
-  require('./util/api.js')(app80); //api接口
-  require('./fuliaoLiveWithoutFlash/app')(app80); //富聊后台视频聊优化建议方案
-  require('./livePlayingSchemes/app')(app80); //web前端常用直播流播放方案（PC端）
-  require('./fuliaoWebappVue/app')(app80); //富聊webapp移动端Vue开发版
+  require('./util/api.js')(app80) //api接口
+  require('./fuliaoLiveWithoutFlash/app')(app80) //富聊后台视频聊优化建议方案
+  require('./livePlayingSchemes/app')(app80) //web前端常用直播流播放方案（PC端）
+  require('./fuliaoWebappVue/app')(app80) //富聊webapp移动端Vue开发版
   
-  app80.listen(80);
-  console.log('服务器创建成功:80')
+  app80.listen(80)
 }

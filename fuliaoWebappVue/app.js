@@ -6,7 +6,7 @@ const { readFilePromise } = require('../util/promisify');
 
 module.exports = (app) => {
 
-    router.get('/fuliaoWebappVue', async(ctx) => {
+    router.get('/', async(ctx) => {
         ctx.body = (await readFilePromise(__dirname + '/index.html')).toString()
     })
 
