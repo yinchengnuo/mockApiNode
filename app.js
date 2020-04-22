@@ -66,7 +66,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
     // ctx.redirect('https://yinchengnuo.com')
     console.log(2333)
   })
-  app80.use(router.routes()).use(router.allowedMethods())
+  app80.use(router80.routes()).use(router80.allowedMethods())
   
   require('./util/api.js')(app80) //api接口
   require('./fuliaoLiveWithoutFlash/app')(app80) //富聊后台视频聊优化建议方案
