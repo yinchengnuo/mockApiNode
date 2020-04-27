@@ -121,4 +121,60 @@ module.exports = router => {
       data
     };
   });
+
+  router.get("/goods/list1", async ctx => {
+    await new Promise(resolve => setTimeout(() => resolve(), 0));
+    ctx.body = {
+      code: 200,
+      message: "获取商品列表成功",
+      data: {
+        list: [
+          {
+            id: 0,
+            money: 999,
+            name: "大卫博士精装款内裤",
+            unit: '套',
+            size: ['S', 'M', 'L', 'XL', 'XLL'],
+            size_id: [768, 769, 770, 771, 772],
+            main_img: "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp",
+            banner_img: [
+              "http://img10.360buyimg.com/imgzone/jfs/t1/95937/23/2305/363946/5dcd1379Ebf11b82e/b11db40e9faf461f.jpg",
+              "https://img10.360buyimg.com/imgzone/jfs/t1/50917/26/5735/30357/5d35482eE2501a5a4/e2fe63d8e36680be.jpg",
+              "https://img10.360buyimg.com/imgzone/jfs/t1/84418/8/5628/66413/5d3bfa87E624e4cc0/588427c7d813f20f.jpg"
+            ]
+          },
+          {
+            id: 1,
+            money: 333,
+            name: "大卫博士简约款内裤",
+            unit: '套',
+            size: ['XL', 'XLL'],
+            size_id: [773, 774],
+            main_img: "https://img14.360buyimg.com/n7/jfs/t1/58382/32/4757/556896/5d27f33cE89c97b66/85ffb23daf13f59c.jpg",
+            banner_img: [
+              "http://img10.360buyimg.com/imgzone/jfs/t1/95937/23/2305/363946/5dcd1379Ebf11b82e/b11db40e9faf461f.jpg",
+              "https://img10.360buyimg.com/imgzone/jfs/t1/50917/26/5735/30357/5d35482eE2501a5a4/e2fe63d8e36680be.jpg",
+              "https://img10.360buyimg.com/imgzone/jfs/t1/84418/8/5628/66413/5d3bfa87E624e4cc0/588427c7d813f20f.jpg"
+            ]
+          },
+          {
+            id: 2,
+            money: 666,
+            name: "大卫博士老人款内裤",
+            unit: '套',
+            size: ['XL', 'XLL'],
+            size_id: [775, 776],
+            main_img: "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg",
+            banner_img: [
+              "http://img10.360buyimg.com/imgzone/jfs/t1/95937/23/2305/363946/5dcd1379Ebf11b82e/b11db40e9faf461f.jpg",
+              "https://img10.360buyimg.com/imgzone/jfs/t1/50917/26/5735/30357/5d35482eE2501a5a4/e2fe63d8e36680be.jpg",
+              "https://img10.360buyimg.com/imgzone/jfs/t1/84418/8/5628/66413/5d3bfa87E624e4cc0/588427c7d813f20f.jpg"
+            ]
+          }
+        ]
+      }
+    };
+  });
+
+
 };

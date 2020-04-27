@@ -18,11 +18,13 @@ module.exports = router => {
             ],
             voice: i % 2 === 0 ? 'https://www.w3school.com.cn/i/horse.ogg' : '',
             voiceText: i % 2 === 0 ? '语音识别结果，语音识别结果，语音识别结果，语音识别结果。' : '',
-            reply: '您好，您的建议我们已经收到，感谢您 的反馈。'
+            reply: '您好，您的建议我们已经收到，感谢您 的反馈。',
+            important: i % 2,
+            address: '河南省郑州市金水区'
         })
     }
 
-    router.get('/query/list', async ctx => {
+    router.get('/cl/list', async ctx => {
         await new Promise(resolve => setTimeout(() => resolve(), 567))
         ctx.body = {
             code: 200,
@@ -31,6 +33,41 @@ module.exports = router => {
                 total,
                 list: list.slice((ctx.query.page - 1) * size, (ctx.query.page - 1) * size + size)
             }
+        }
+    })
+
+    router.get('/show', async ctx => {
+        await new Promise(resolve => setTimeout(() => resolve(), 567))
+        ctx.body = {
+            code: 200,
+            message: '获取意见反馈列表成功',
+            data: {
+                total,
+                list: [
+                    {
+                        body: "感谢您的信任，祝您生活愉快。😃",
+                        created_at: "2020-04-23T09:53:51.000000Z",
+                        id: 9,
+                        updated_at: "2020-04-23T09:59:13.000000Z",
+                    }
+                ]
+            }
+        }
+    })
+
+    router.get('/sign', async ctx => {
+        await new Promise(resolve => setTimeout(() => resolve(), 567))
+        ctx.body = {
+            code: 200,
+            message: '修改标记成功'
+        }
+    })
+
+    router.get('/cl/reply', async ctx => {
+        await new Promise(resolve => setTimeout(() => resolve(), 567))
+        ctx.body = {
+            code: 200,
+            message: '修改标记成功'
         }
     })
 

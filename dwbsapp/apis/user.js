@@ -15,15 +15,17 @@ module.exports = router => {
         mobile: 18338112210,
         pass_satatus: false,
         store: true,
-        level: "顶级代理", // 用户等级
+        money: 9999,
+        level: "代理公司", // 用户等级
         level_change: 1, // 用户等级变化情况
         order_num1: 11,
         order_num2: 22,
         order_num3: 33,
+        order_num4: 44,
         avatar: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1467242771,949293240&fm=26&gp=0.jpg"
       }
-    };
-  });
+    }
+  })
 
   router.get("/user/getinfo", async ctx => {
     ctx.body = {
