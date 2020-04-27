@@ -6,6 +6,7 @@ module.exports = app => {
     require('./apis/index')(router);  //首页
     require('./apis/role')(router);
     require('./apis/user')(router);
+    require('./apis/query')(router);
     require('./apis/tongji')(router);
     require('./apis/usermange')(router);
     require('./apis/giftmanage')(router);

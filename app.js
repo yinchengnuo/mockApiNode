@@ -72,3 +72,8 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   
   app80.listen(80)
 }
+
+// http://guest.miwifi.com:8999/wifishare.html
+
+// http://api.miwifi.com/wifirent/api/ad_apply_rent?callback=jsonpCallback&router_id=8a78636b-0479-5312-3064-3811a71d8615&client_info=HNzvmJkbV6Ce8KNNyl1gGbBfUJEws4dd7A9hKz0jwCDiH%2FRU2cQX8qY3Lisi8pgu&_=1587992725596
+// https://cdn.securecloud.com.cn/portal/xm/index.html
