@@ -22,7 +22,7 @@ module.exports = router => {
         order_num2: 22,
         order_num3: 33,
         order_num4: 44,
-        avatar: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1467242771,949293240&fm=26&gp=0.jpg"
+        avatar: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1326106147,2349891741&fm=26&gp=0.jpg"
       }
     }
   })
