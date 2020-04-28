@@ -1,6 +1,6 @@
 module.exports = router => {
   router.get("/user/show_address", async ctx => {
-    await new Promise(resolve => setTimeout(() => resolve(), 1234));
+    await new Promise(resolve => setTimeout(() => resolve(), 0));
     ctx.body = {
       code: 200,
       message: "获取地址成功",

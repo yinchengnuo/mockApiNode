@@ -134,8 +134,8 @@ module.exports = router => {
             money: 999,
             name: "大卫博士精装款内裤",
             unit: '套',
-            size: ['S', 'M', 'L', 'XL', 'XLL'],
-            size_id: [768, 769, 770, 771, 772],
+            size: ['S', 'M', 'L', 'XL', 'XXL'],
+            size_id: [1, 2, 3, 771, 772],
             main_img: "https://img.alicdn.com/imgextra/i4/40595992/O1CN012kjBGt1u8NnUCnx9p_!!0-saturn_solar.jpg_220x220.jpg_.webp",
             banner_img: [
               "http://img10.360buyimg.com/imgzone/jfs/t1/95937/23/2305/363946/5dcd1379Ebf11b82e/b11db40e9faf461f.jpg",
@@ -148,8 +148,8 @@ module.exports = router => {
             money: 333,
             name: "大卫博士简约款内裤",
             unit: '套',
-            size: ['XL', 'XLL'],
-            size_id: [773, 774],
+            size: ['L', 'XL', 'XXL'],
+            size_id: [4, 5, 6],
             main_img: "https://img14.360buyimg.com/n7/jfs/t1/58382/32/4757/556896/5d27f33cE89c97b66/85ffb23daf13f59c.jpg",
             banner_img: [
               "http://img10.360buyimg.com/imgzone/jfs/t1/95937/23/2305/363946/5dcd1379Ebf11b82e/b11db40e9faf461f.jpg",
@@ -162,8 +162,8 @@ module.exports = router => {
             money: 666,
             name: "大卫博士老人款内裤",
             unit: '套',
-            size: ['XL', 'XLL'],
-            size_id: [775, 776],
+            size: ['L', 'XL', 'XXL'],
+            size_id: [7, 8, 9],
             main_img: "https://img14.360buyimg.com/n7/jfs/t16519/285/2653381957/332101/291d66be/5ab9f122Ncf6bad38.jpg",
             banner_img: [
               "http://img10.360buyimg.com/imgzone/jfs/t1/95937/23/2305/363946/5dcd1379Ebf11b82e/b11db40e9faf461f.jpg",
