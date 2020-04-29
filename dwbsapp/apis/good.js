@@ -122,7 +122,7 @@ module.exports = router => {
     };
   });
 
-  router.get("/goods/list1", async ctx => {
+  router.get("/good_show", async ctx => {
     await new Promise(resolve => setTimeout(() => resolve(), 0));
     ctx.body = {
       code: 200,
@@ -131,6 +131,7 @@ module.exports = router => {
         list: [
           {
             id: 0,
+            attr_id: '0',
             money: 999,
             name: "大卫博士精装款内裤",
             unit: '套',
@@ -145,6 +146,7 @@ module.exports = router => {
           },
           {
             id: 1,
+            attr_id: '1',
             money: 333,
             name: "大卫博士简约款内裤",
             unit: '套',
@@ -159,6 +161,7 @@ module.exports = router => {
           },
           {
             id: 2,
+            attr_id: '2',
             money: 666,
             name: "大卫博士老人款内裤",
             unit: '套',

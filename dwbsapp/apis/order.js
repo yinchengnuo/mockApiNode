@@ -30,10 +30,49 @@ for (let i = 0; i < total; i++) {
 }
 
 module.exports = (router) => {
-  router.get("/order/pay", async (ctx) => {
+  router.get("/pay_order", async (ctx) => {
     ctx.body = {
       code: 200,
       message: "订单付款成功",
+    };
+  });
+
+  router.get("/destory", async (ctx) => {
+    ctx.body = {
+      code: 200,
+      message: "取消订单成功",
+    };
+  });
+
+  router.get("/get_log", async (ctx) => {
+    ctx.body = {
+      code: 200,
+      message: "获取操作日志成功",
+      data: {
+        list: [
+          {
+            log_name: "操作人：张三",
+            log_text: "财务审核中，订单信息错误，已退回,重新订单审 核。",
+            created_at: "2020-04-28",
+          },
+        ],
+      },
+    };
+  });
+
+  router.get("/user/user_pay_log", async (ctx) => {
+    ctx.body = {
+      code: 200,
+      message: "获取钱包流水成功",
+      data: {
+        list: [
+          {
+            log_name: "操作人：张三",
+            log_text: "财务审核中，订单信息错误，已退回,重新订单审 核。",
+            created_at: "2020-04-28",
+          },
+        ],
+      },
     };
   });
 
@@ -43,11 +82,11 @@ module.exports = (router) => {
       message: "再次购买成功",
       data: {
         order_num: "12345678901234567890",
-      }
+      },
     };
   });
 
-  router.get("/order/my_order1", async (ctx) => {
+  router.get("/order_list", async (ctx) => {
     await new Promise((resolve) => setTimeout(() => resolve(), 0));
     const size = 15;
     const total = 50;
@@ -353,7 +392,7 @@ module.exports = (router) => {
     };
   });
 
-  router.get("/order/detail1", async (ctx) => {
+  router.get("/order_detail", async (ctx) => {
     console.log(ctx.request.query);
     ctx.body = {
       code: 200,
@@ -372,7 +411,8 @@ module.exports = (router) => {
           "备注备注备注备注备注备注备注备注备备注备注备注备注备注备注备注备注备注备注备注备注备注",
         list: [
           {
-            id: '0',
+            id: "0",
+            attr_id: "0",
             name: "大卫博士精装款内裤男款",
             size: ["L", "XL", "XXL"],
             size_id: [1, 2, 3],
@@ -385,7 +425,8 @@ module.exports = (router) => {
             sec_attr: "男款",
           },
           {
-            id: '1',
+            id: "1",
+            attr_id: "1",
             name: "大卫博士简约款内裤男款",
             size: ["L", "XL", "XXL"],
             size_id: [4, 5, 6],
@@ -398,7 +439,8 @@ module.exports = (router) => {
             sec_attr: "男款",
           },
           {
-            id: '2',
+            id: "2",
+            attr_id: "2",
             name: "大卫博士老人款内裤男款",
             size: ["L", "XL", "XXL"],
             size_id: [7, 8, 9],
@@ -445,6 +487,17 @@ module.exports = (router) => {
   });
 
   router.post("/order/submit_order", async (ctx) => {
+    console.log(JSON.stringify(ctx.request.body, null, 2));
+    ctx.body = {
+      code: 200,
+      message: "订货下单成功",
+      data: {
+        order_num: "12345678901234567890",
+      },
+    };
+  });
+
+  router.post("/submit_order", async (ctx) => {
     console.log(JSON.stringify(ctx.request.body, null, 2));
     ctx.body = {
       code: 200,
