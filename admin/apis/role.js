@@ -82,9 +82,21 @@ module.exports = router => {
     })
 
     router.post('/account/update', async ctx => {
-        ctx.body = {
-            code: 200,
-            message: '修改账号权限成功'
+        const accountList = JSON.parse(fs.readFileSync('./admin/data/account.json').toString())
+        const index = accountList.findIndex(e => e.name == ctx.request.body.name)
+        console.log(index)
+        console.log(ctx.request.body.name)
+        if (index == -1) {
+            accountList.find(e => e.id == ctx.request.body.id).name = ctx.request.body.name
+            accountList.find(e => e.id == ctx.request.body.id).role = ctx.request.body.role
+            fs.writeFileSync('./admin/data/account.json', JSON.stringify(accountList))
+            ctx.body = {
+                code: 200,
+                message: '修改账号信息成功'
+            }
+            
+        } else {
+            ctx.body = { code: 300, message: '该账号名称已存在' }
         }
     })
 
