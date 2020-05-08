@@ -8,7 +8,8 @@
     "dev": "set NODE_ENV=development && npx nodemon ./app.js",
     "pub": "git add . && git commit -m 'publish' && git push --force",
     "start": "pm2 start ./app.js --watch --name app",
-    "stop": "pm2 kill"
+    "stop": "pm2 kill",
+    "restart": "pm2 kill && npm start"
   },
   "keywords": [],
   "author": "",
