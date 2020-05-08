@@ -9,28 +9,22 @@ module.exports = router => {
     })
 
     router.get("/express", async (ctx) => { // github hook
-        console.log(ctx.request.query.num)
-        if (ctx.request.query.num.length >= 9) {
-            ctx.body = await new Promise(async resolve => {
-                const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
-                const page = await browser.newPage()
-                page.goto(`https://www.baidu.com/s?wd=${ctx.request.query.num}`) // 557006432812950
-                page.on('response', async res => {
-                    if (res._url.includes('/express/api/express')) {
-                        const jsonp = await res.text()
-                        global[jsonp.match(/jQuery.+(?=\(\{)/g)] = async data => {
-                            console.log(data)
-                            resolve(data)
-                            await page.close()
-                            await browser.close()                
-                        }
-                        eval(jsonp)
-                    }
-                })
+        ctx.body = await new Promise(async resolve => {
+            const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
+            const page = await browser.newPage()
+            await page.goto('https://www.kuaidi100.com/') // 557006432812950
+            const input = await page.$('#postid')
+            await input.type(ctx.request.query.num)
+            const query = await page.$('#query')
+            await query.click()
+            page.on('response', async res => {
+                if (res._url.includes('/query')) {
+                    resolve(JSON.parse(await res.text()))
+                    await page.close()
+                    await browser.close()
+                }
             })
-        } else {
-            ctx.body = { msg: '物流单号不合法' }
-        }
+        })
     })
 
 }
