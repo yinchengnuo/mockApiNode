@@ -5,7 +5,7 @@ module.exports = async router => {
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
     let page = await browser.newPage()
     await page.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' }) // 557006432812950
-    setTimeout(async () => {
+    setInterval(async () => {
         const newPage = await browser.newPage()
         await newPage.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' }) // 557006432812950
         const temp = page
