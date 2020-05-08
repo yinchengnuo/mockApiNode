@@ -5,6 +5,13 @@ module.exports = async router => {
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
     const page = await browser.newPage()
     await page.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' }) // 557006432812950
+    setTimeout(() => {
+        const newPage = await browser.newPage()
+        await newPage.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' }) // 557006432812950
+        const temp = page
+        page = newPage
+        temp.close()
+    }, 1000 * 60 * 3)
     
     router.post("/gitHook", async (ctx) => { // github hook
         exec('git reset --hard && git pull --force')
