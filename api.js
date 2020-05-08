@@ -9,31 +9,23 @@ module.exports = router => {
     })
 
     router.get("/express", async (ctx) => { // 物流单号查询
-        console.log('query:', ctx.request.query.num)
         ctx.body = await new Promise(async resolve => {
-            const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
-            console.log('browser')
+            const browser = await puppeteer.launch({ headless: false, slowMo: 666, args: ['--no-sandbox', '--disable-setuid-sandbox'] })
             const page = await browser.newPage()
-            console.log('page')
-            await new Promise(resolve => setTimeout(() => resolve()))
-            await page.goto('https://www.kuaidi100.com') // 557006432812950
-            console.log('https://www.kuaidi100.com')
+            await page.setExtraHTTPHeaders({ 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' })
+            await page.goto('https://www.kuaidi100.com/', { timeout: 0 }) // 557006432812950
             const input = await page.$('#postid')
-            console.log('input')
             await input.type(ctx.request.query.num)
-            console.log(ctx.request.query.num)
             const query = await page.$('#query')
-            console.log('query')
             await query.click()
-            console.log('click')
             page.on('request', async req => {
-                console.log(req._url)
+                // console.log(req._url)
             })
             page.on('response', async res => {
                 if (res._url.includes('/query')) {
                     resolve(JSON.parse(await res.text()))
-                    await page.close()
-                    await browser.close()
+                    // await page.close()
+                    // await browser.close()
                 }
             })
         })
