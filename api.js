@@ -11,7 +11,7 @@ module.exports = router => {
 
     router.get("/express", async (ctx) => { // 物流单号查询
         ctx.body = await new Promise(async resolve => {
-            const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
+            const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
             const page = await browser.newPage()
             await page.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' }) // 557006432812950
             const input = await page.$('#postid')
