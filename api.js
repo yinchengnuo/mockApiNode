@@ -3,7 +3,7 @@ const exec = require('child_process').exec;
 
 module.exports = async router => {
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
-    const page = await browser.newPage()
+    let page = await browser.newPage()
     await page.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' }) // 557006432812950
     setTimeout(() => {
         const newPage = await browser.newPage()
