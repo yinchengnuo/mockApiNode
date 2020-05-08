@@ -5,19 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>API测试</title>
+    <style>
+        iframe {
+            width: 1234px;
+            height: 888px;
+        }
+    </style>
 </head>
 <body>
+    <iframe id="iframe" src="https://www.kuaidi100.com/frame/index.html" frameborder="0"></iframe>
     <audio src="" controls="controls"></audio>
     <input type="file" name="file" id="file">
     <script src="https://benzleung.github.io/benz-amr-recorder/BenzAMRRecorder.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@yinchengnuo/webstorage-proxy@1.0.4/dist/webstorage-proxy.min.js"></script>
     <script>
-
-var amr = new BenzAMRRecorder();
-amr.initWithUrl('http://api.woaidakele.cn/20200420190906500.amr').then(function() {
-  amr.play();
-});
+        console.log(iframe.contentWindow)
+        // var amr = new BenzAMRRecorder();
+        // amr.initWithUrl('http://api.woaidakele.cn/20200420190906500.amr').then(function() {
+        // amr.play();
+        // });
 
         // axios.get("http://api.woaidakele.cn/20200420190906500.amr", {
         //     responseType: 'blob'

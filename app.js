@@ -1,5 +1,6 @@
 const fs = require("fs");
 const Koa = require("koa");
+const apis = require("./api")
 const https = require("https");
 const body = require("koa-body");
 const cors = require("koa-cors");
@@ -7,7 +8,6 @@ const route = require("koa-route");
 const static = require("koa-static");
 const router = require("koa-router")();
 const compress = require("koa-compress");
-const exec = require('child_process').exec;
 const app = require("koa-websocket")(new Koa());
 
 app.ws.use(
@@ -37,10 +37,8 @@ app.use(async (ctx, next) => { // history 中间件
 app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
-router.post("/gitHook", async (ctx) => { // github hook
-  exec('git reset --hard && git pull --force')
-  ctx.body = ""
-})
+apis(router) // 一些方法自定义接口
+
 app.use(router.routes()).use(router.allowedMethods()); //路由中间件
 
 require("./dwbszbs/app")(app); //启动大卫博士争霸赛MOCK
@@ -72,8 +70,3 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   
   app80.listen(80)
 }
-
-// http://guest.miwifi.com:8999/wifishare.html
-
-// http://api.miwifi.com/wifirent/api/ad_apply_rent?callback=jsonpCallback&router_id=8a78636b-0479-5312-3064-3811a71d8615&client_info=HNzvmJkbV6Ce8KNNyl1gGbBfUJEws4dd7A9hKz0jwCDiH%2FRU2cQX8qY3Lisi8pgu&_=1587992725596
-// https://cdn.securecloud.com.cn/portal/xm/index.html
