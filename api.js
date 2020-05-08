@@ -8,15 +8,24 @@ module.exports = router => {
         ctx.body = ""
     })
 
-    router.get("/express", async (ctx) => { // github hook
+    router.get("/express", async (ctx) => { // 物流单号查询
+        console.log('query:', ctx.request.query.num)
         ctx.body = await new Promise(async resolve => {
             const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
+            console.log('browser')
             const page = await browser.newPage()
-            await page.goto('https://www.kuaidi100.com/') // 557006432812950
+            console.log('page')
+            await new Promise(resolve => setTimeout(() => resolve()))
+            await page.goto('https://www.kuaidi100.com') // 557006432812950
+            console.log('https://www.kuaidi100.com')
             const input = await page.$('#postid')
+            console.log('input')
             await input.type(ctx.request.query.num)
+            console.log(ctx.request.query.num)
             const query = await page.$('#query')
+            console.log('query')
             await query.click()
+            console.log('click')
             page.on('request', async req => {
                 console.log(req._url)
             })
