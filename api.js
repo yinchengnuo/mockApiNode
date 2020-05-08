@@ -10,7 +10,7 @@ module.exports = router => {
 
     router.get("/express", async (ctx) => { // 物流单号查询
         ctx.body = await new Promise(async resolve => {
-            const browser = await puppeteer.launch({ headless: false, slowMo: 666, args: ['--no-sandbox', '--disable-setuid-sandbox'] })
+            const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
             const page = await browser.newPage()
             await page.setExtraHTTPHeaders({ 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' })
             await page.goto('https://www.kuaidi100.com/', { timeout: 0 }) // 557006432812950
