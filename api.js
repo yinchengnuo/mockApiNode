@@ -17,6 +17,9 @@ module.exports = router => {
             await input.type(ctx.request.query.num)
             const query = await page.$('#query')
             await query.click()
+            page.on('request', async req => {
+                console.log(req._url)
+            })
             page.on('response', async res => {
                 if (res._url.includes('/query')) {
                     resolve(JSON.parse(await res.text()))
