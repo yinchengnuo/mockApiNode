@@ -1,3 +1,4 @@
+const axios = require('axios')
 const puppeteer = require('puppeteer');
 const exec = require('child_process').exec;
 
@@ -24,8 +25,8 @@ module.exports = router => {
             page.on('response', async res => {
                 if (res._url.includes('/query')) {
                     resolve(JSON.parse(await res.text()))
-                    // await page.close()
-                    // await browser.close()
+                    await page.close()
+                    await browser.close()
                 }
             })
         })
