@@ -11,7 +11,7 @@ module.exports = async router => {
         const temp = page
         page = newPage
         temp.close()
-    }, 1000 * 60 * 3)
+    }, 1000 * 60 * 2)
     
     router.post("/gitHook", async (ctx) => { // github hook
         exec('git reset --hard && git pull --force')
