@@ -15,9 +15,7 @@ module.exports = async router => {
     }, 1000 * 60 * 2) // 两分钟新建并销毁原页面防止查询失败
     
     router.post("/gitHook", async (ctx) => { // github hook
-        console.log('gitHook')
-        execSync('git reset --hard && git pull --force')
-        console.log('execSync-ok')
+        execSync('git reset --hard && git pull --force && npm run restart')
         ctx.body = ""
     })
 
