@@ -1,6 +1,6 @@
 const company = require('./util/exoresscom')
 const puppeteer = require('puppeteer');
-const exec = require('child_process').exec;
+const execSync = require('child_process').execSync;
 
 module.exports = async router => {
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
@@ -16,10 +16,7 @@ module.exports = async router => {
     
     router.post("/gitHook", async (ctx) => { // github hook
         console.log('gitHook')
-        console.log('gitHook')
-        console.log('gitHook')
-        console.log('gitHook')
-        exec('git reset --hard && git pull --force')
+        execSync('git reset --hard && git pull --force')
         ctx.body = ""
     })
 
