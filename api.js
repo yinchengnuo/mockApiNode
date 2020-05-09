@@ -7,7 +7,7 @@ const execSync = require('child_process').execSync;
 const event = new events.EventEmitter();
 
 module.exports = async router => {
-    const pageNum = 9 // 无头浏览器 tab 数量
+    const pageNum = 3 // 无头浏览器 tab 数量
     let nowPageNum = 0
     const requestList = [] // 待处理单号
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
