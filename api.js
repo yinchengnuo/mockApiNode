@@ -11,7 +11,7 @@ module.exports = async router => {
         const temp = page
         page = newPage
         temp.close()
-    }, 1000 * 60 * 2)
+    }, 1000 * 60 * 2) // 两分钟新建并销毁原页面防止查询失败
     
     router.post("/gitHook", async (ctx) => { // github hook
         exec('git reset --hard && git pull --force')
