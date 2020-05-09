@@ -14,7 +14,7 @@ module.exports = async router => {
     const pageList = [] // page 实例列表
     for(let i = 0; i < pageNum; i ++) { // 初始化指定数量的 page 配置
         const page = await browser.newPage() // 生成 page 实例
-        page.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' }).then(() => nowPageNum ++) // 页面加载完成后推入 pageList
+        page.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' }).then(() => nowPageNum ++) // 页面加载完成后标记可用页面个数
         page.on('response', async res => { // 监听网页网络请求响应数据
             if (res._url.includes('/query?')) { // 监听指定 url
                 const result = JSON.parse(await res.text()) // 取到数据
@@ -49,18 +49,14 @@ module.exports = async router => {
         }
     }, 1000 * 60 * 2) // 两分钟新建并销毁原页面防止查询失败
 
-    const distribute = order_num => {
+    const distribute = order_num => { // 根据订单号分发请求
         if (!requestList.includes(order_num)) {
-            const free = pageList.find(e => !e.requesting)
-            free ? free.request(order_num) : requestList.push(order_num)
+            const free = pageList.find(e => !e.requesting) // 获取空闲的 page
+            free ? free.request(order_num) : requestList.push(order_num) // 有空闲 page 就执行爬取，否则推入 requestList 等待
         }
     }
 
-    event.on('REQUEST_OK', () => {
-        if (requestList.length) {
-            distribute(requestList.splice(0, 1)[0])
-        }
-    })
+    event.on('REQUEST_OK', () => requestList.length && distribute(requestList.splice(0, 1)[0])) // 当有订单爬取成功且 requestList 有等待订单，重新分发)
 
     router.get("/express", async (ctx) => { // 物流单号查询
         if (ctx.request.query.num) { // 检查物流单号
