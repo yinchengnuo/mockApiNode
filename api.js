@@ -17,6 +17,7 @@ module.exports = async router => {
     router.post("/gitHook", async (ctx) => { // github hook
         console.log('gitHook')
         console.log('gitHook')
+        console.log('gitHook')
         exec('git reset --hard && git pull --force')
         ctx.body = ""
     })
