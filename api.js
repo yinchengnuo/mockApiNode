@@ -19,7 +19,6 @@ module.exports = async router => {
             if (res._url.includes('/query?')) { // 监听指定 url
                 const result = JSON.parse(await res.text()) // 取到数据
                 result.com ? result.comInfo = company.find(e => e.number == result.com) : '' // 查询到结果后绑定快递公司名称
-                pageList[i].requesting = false // 将状态标记为空闲
                 !result.nu ? result.nu = URL.parse(res.url(), true).query.postid : '' // 查询无无结果时将物流单号赋值给 nu 便于从队列删除
                 event.emit('REQUEST_OK', result) // 将数据发送到全局
             }
@@ -33,17 +32,18 @@ module.exports = async router => {
                 await input.type(order_num) // 填入物流单号
                 const query = await this.page.$('#query') // 获取按钮
                 await query.click() // 触发按钮点击
+                this.requesting = false // 将状态标记为空闲
             }
         })
     }
 
-    setInterval(async () => { // 定时重启页面，防止停留时间过长失效
-        for(let i = 0; i < pageNum; i ++) { // 遍历 pageList 重启页面
-            pageList[i].requesting = true
-            await pageList[i].page.reload({ timeout: 0, waitUntil: 'domcontentloaded' }) // 刷新页面
-            pageList[i].requesting = false
-        }
-    }, 1000 * 60 * 20) // 两分钟新建并销毁原页面防止查询失败
+    // setInterval(async () => { // 定时重启页面，防止停留时间过长失效
+    //     for(let i = 0; i < pageNum; i ++) { // 遍历 pageList 重启页面
+    //         pageList[i].requesting = true
+    //         await pageList[i].page.reload({ timeout: 0, waitUntil: 'domcontentloaded' }) // 刷新页面
+    //         pageList[i].requesting = false
+    //     }
+    // }, 1000 * 60 * 60 ) // 两分钟新建并销毁原页面防止查询失败
 
     const distribute = order_num => { // 根据订单号分发请求
         if (!requestList.includes(order_num)) {
