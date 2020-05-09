@@ -8,10 +8,10 @@ const event = new events.EventEmitter();
 
 module.exports = async router => {
     const pageNum = 3 // 无头浏览器 tab 数量
-    let nowPageNum = 0
+    let nowPageNum = 0 // 可用 page 个数
+    const pageList = [] // page 实例列表
     const requestList = [] // 待处理单号
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
-    const pageList = [] // page 实例列表
     for(let i = 0; i < pageNum; i ++) { // 初始化指定数量的 page 配置
         const page = await browser.newPage() // 生成 page 实例
         page.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' }).then(() => nowPageNum ++) // 页面加载完成后标记可用页面个数
