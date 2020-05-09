@@ -1,3 +1,4 @@
+const company = require('./util/exoresscom')
 const puppeteer = require('puppeteer');
 const exec = require('child_process').exec;
 
@@ -14,6 +15,7 @@ module.exports = async router => {
     }, 1000 * 60 * 2) // 两分钟新建并销毁原页面防止查询失败
     
     router.post("/gitHook", async (ctx) => { // github hook
+        console.log('gitHook')
         exec('git reset --hard && git pull --force')
         ctx.body = ""
     })
@@ -26,7 +28,11 @@ module.exports = async router => {
             await query.click()
             page.on('response', async res => {
                 if (res._url.includes('/query')) {
-                    resolve(JSON.parse(await res.text()))
+                    const result = JSON.parse(await res.text())
+                    if (result.com) {
+                        result.comInfo = company.find(e => e.number == result.com)
+                    }
+                    resolve(result)
                 }
             })
         })
