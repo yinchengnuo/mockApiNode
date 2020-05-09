@@ -11,10 +11,10 @@ module.exports = async router => {
     let nowPageNum = 0 // 可用 page 个数
     const pageList = [] // page 实例列表
     const requestList = [] // 待处理单号
-    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
+    const browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
     for(let i = 0; i < pageNum; i ++) { // 初始化指定数量的 page 配置
         const page = await browser.newPage() // 生成 page 实例
-        page.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' }).then(() => nowPageNum ++) // 页面加载完成后标记可用页面个数
+        page.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'domcontentloaded' }).then(() => nowPageNum ++) // 页面加载完成后标记可用页面个数
         page.on('response', async res => { // 监听网页网络请求响应数据
             if (res._url.includes('/query?')) { // 监听指定 url
                 const result = JSON.parse(await res.text()) // 取到数据
@@ -38,16 +38,12 @@ module.exports = async router => {
     }
 
     setInterval(async () => { // 定时重启页面，防止停留时间过长失效
-        for(let i = 0; i < pageNum; i ++) {
+        for(let i = 0; i < pageNum; i ++) { // 遍历 pageList 重启页面
             pageList[i].requesting = true
-            const newPage = await browser.newPage()
-            await newPage.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'networkidle2' })
-            const temp = pageList[i]
-            pageList[i].page = newPage
-            await temp.page.close()
+            await pageList[i].page.reload({ timeout: 0, waitUntil: 'domcontentloaded' }) // 刷新页面
             pageList[i].requesting = false
         }
-    }, 1000 * 60 * 2) // 两分钟新建并销毁原页面防止查询失败
+    }, 1000 * 10 * 2) // 两分钟新建并销毁原页面防止查询失败
 
     const distribute = order_num => { // 根据订单号分发请求
         if (!requestList.includes(order_num)) {
