@@ -37,13 +37,13 @@ module.exports = async router => {
         })
     }
 
-    // setInterval(async () => { // 定时重启页面，防止停留时间过长失效
-    //     for(let i = 0; i < pageNum; i ++) { // 遍历 pageList 重启页面
-    //         pageList[i].requesting = true
-    //         await pageList[i].page.reload({ timeout: 0, waitUntil: 'domcontentloaded' }) // 刷新页面
-    //         pageList[i].requesting = false
-    //     }
-    // }, 1000 * 60 * 60 ) // 两分钟新建并销毁原页面防止查询失败
+    setInterval(async () => { // 定时重启页面，防止停留时间过长失效
+        for(let i = 0; i < pageNum; i ++) { // 遍历 pageList 重启页面
+            pageList[i].requesting = true
+            await pageList[i].page.reload({ timeout: 0, waitUntil: 'domcontentloaded' }) // 刷新页面
+            pageList[i].requesting = false
+        }
+    }, 1000 * 60 * 30 ) // 两分钟新建并销毁原页面防止查询失败
 
     const distribute = order_num => { // 根据订单号分发请求
         if (!requestList.includes(order_num)) {
