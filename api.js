@@ -43,7 +43,7 @@ module.exports = async router => {
             await pageList[i].page.reload({ timeout: 0, waitUntil: 'domcontentloaded' }) // 刷新页面
             pageList[i].requesting = false
         }
-    }, 1000 * 60 * 20 ) // 两分钟新建并销毁原页面防止查询失败
+    }, 1000 * 60 * 10 ) // 十分钟刷新一次页面防止cookie失效
 
     const distribute = order_num => { // 根据订单号分发请求
         if (!requestList.includes(order_num)) {
