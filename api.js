@@ -23,7 +23,7 @@ module.exports = async router => {
                 event.emit('REQUEST_OK', result) // 将数据发送到全局
             }
         })
-        pageList.push({ 
+        pageList.push({
             page, // page 实例
             requesting: false, // 状态是否在请求中
             async request(order_num) { // 请求方法
@@ -59,7 +59,7 @@ module.exports = async router => {
             if (nowPageNum) { // 爬虫页面是否开启
                 distribute(ctx.request.query.num) // 分发请求
                 try {
-                    ctx.body = await new Promise(resolve => event.on('REQUEST_OK', data => data.nu == ctx.request.query.num && resolve(data))) // 等待请求成功响应请求    
+                    ctx.body = await new Promise(resolve => event.on('REQUEST_OK', data => data.nu == ctx.request.query.num && resolve(data))) // 等待请求成功响应请求
                 } catch (error) {
                     ctx.body = { msg: '爬取失败' }
                 }
