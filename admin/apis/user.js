@@ -46,7 +46,9 @@ module.exports = router => {
         const name = decodeURIComponent(ctx.request.header.authorization.split(' ')[1])
         const accountList = JSON.parse(fs.readFileSync('./admin/data/account.json').toString())
             if (accountList.find(e => e.name == name).password == ctx.request.body.old) {
-                accountList.find(e => e.name == name).password = ctx.request.body.new
+                if (accountList.find(e => e.name == name).role != 'root') {
+                    accountList.find(e => e.name == name).password = ctx.request.body.new
+                }
                 fs.writeFileSync('./admin/data/account.json', JSON.stringify(accountList))
                 ctx.body = {
                     code: 200,
