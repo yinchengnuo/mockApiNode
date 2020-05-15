@@ -20,18 +20,26 @@ module.exports = router => {
     router.get('/user/info', async ctx => {
         const name = decodeURIComponent(ctx.request.header.authorization.split(' ')[1])
         const user = JSON.parse(fs.readFileSync('./admin/data/account.json').toString()).find(e => e.name == name)
-        user.routes = JSON.parse(fs.readFileSync('./admin/data/role.json').toString()).find(e => e.name === user.role).routes
-        ctx.body = {
-            code: 200,
-            message: '获取用户信息成功',
-            data: {
-                id: user.id,
-                name: user.name,
-                avatar: user.avatar,
-                role: user.role,
-                routes: user.routes
+        if (JSON.parse(fs.readFileSync('./admin/data/role.json').toString()).find(e => e.name === user.role)) {
+            user.routes = JSON.parse(fs.readFileSync('./admin/data/role.json').toString()).find(e => e.name === user.role).routes
+            ctx.body = {
+                code: 200,
+                message: '获取用户信息成功',
+                data: {
+                    id: user.id,
+                    name: user.name,
+                    avatar: user.avatar,
+                    role: user.role,
+                    routes: user.routes
+                }
+            }
+        } else {
+            ctx.body = {
+                code: 300,
+                message: '角色不存在'
             }
         }
+        
     })
 
     router.post('/user/password', async ctx => {
