@@ -1,7 +1,10 @@
-const URL = require('url')
+const fs = require('fs');
+const URL = require('url');
+const path = require('path');
 const events = require('events');
 const puppeteer = require('puppeteer');
 const company = require('./util/exoresscom')
+const exec = require('child_process').exec;
 const execSync = require('child_process').execSync;
 
 const event = new events.EventEmitter();
@@ -74,6 +77,26 @@ module.exports = async router => {
     router.post("/gitHook", async (ctx) => { // github hook
         execSync('git reset --hard && git pull --force')
         ctx.body = ""
+    })
+
+    router.post("/recognition", async (ctx) => { // 文字图片识别
+        console.log(ctx.request.files.img)
+        const name = `./temp/${String(Date.now() + Math.floor(Math.random() * (10 ** 16)))}.${ctx.request.files.img.name}`
+        const reader = fs.createReadStream(ctx.request.files.img.path);
+        const writer = fs.createWriteStream(path.join(__dirname, name));
+        reader.pipe(writer);
+
+        await new Promise(resolve => {
+            exec(`tesseract ${name} ${name} -l chi_sim`, () => {
+                resolve()
+            })
+        })
+        
+        ctx.body = {
+            code: 200,
+            url: path.join('https://www.yinchengnuo.com', name),
+            content: fs.readFileSync(`${path.join(__dirname, name)}.txt`).toString()
+        }
     })
 
 }
