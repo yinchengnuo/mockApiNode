@@ -80,18 +80,15 @@ module.exports = async router => {
     })
 
     router.post("/recognition", async (ctx) => { // 文字图片识别
-        console.log(ctx.request.files.img)
         const name = `./temp/${String(Date.now() + Math.floor(Math.random() * (10 ** 16)))}.${ctx.request.files.img.name}`
         const reader = fs.createReadStream(ctx.request.files.img.path);
         const writer = fs.createWriteStream(path.join(__dirname, name));
         reader.pipe(writer);
-
         await new Promise(resolve => {
             exec(`tesseract ${name} ${name} -l chi_sim`, () => {
                 resolve()
             })
         })
-        
         ctx.body = {
             code: 200,
             url: path.join('https://www.yinchengnuo.com', name),
