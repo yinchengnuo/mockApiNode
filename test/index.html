@@ -20,6 +20,18 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@yinchengnuo/webstorage-proxy@1.0.4/dist/webstorage-proxy.min.js"></script>
     <script>
+
+        const proxyPromise = new Proxy(new Promise(resolve => {
+            setTimeout(() => resolve(), 3000)
+        }), {
+            get(...args) {
+                return Reflect.get(...args).bind(args[0])
+            }
+        })
+
+        proxyPromise.then(() => console.log('3s到了'))
+
+
         // let i = 0;
         // setInterval(() => {
         //     i ++

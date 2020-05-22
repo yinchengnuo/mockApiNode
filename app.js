@@ -42,6 +42,7 @@ apis(router) // 一些方法自定义接口
 app.use(router.routes()).use(router.allowedMethods()); //路由中间件
 
 require("./dwbszbs/app")(app); //启动大卫博士争霸赛MOCK
+require("./dwbsszy/app")(app); //启动大卫博士实战营MOCK
 require("./admin/app")(app); //启动vue后台管理系统MOCK
 require("./dwbsapp/app")(app); //启动大卫博士手机AppMOCK
 
