@@ -69,5 +69,5 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   require('./livePlayingSchemes/app')(app80) //web前端常用直播流播放方案（PC端）
   require('./fuliaoWebappVue/app')(app80) //富聊webapp移动端Vue开发版
   
-  app80.listen(80)
+  app80.listen(81)
 }
