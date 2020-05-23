@@ -10,7 +10,7 @@
     "start": "pm2 start ./app.js --watch --name app",
     "stop": "pm2 kill",
     "restart": "pm2 kill && npm start",
-    "pull": "git pull gogs master && npm run restart"
+    "pull": "git pull origin master --force && npm run restart"
   },
   "keywords": [],
   "author": "",
