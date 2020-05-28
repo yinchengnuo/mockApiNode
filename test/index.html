@@ -21,6 +21,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@yinchengnuo/webstorage-proxy@1.0.4/dist/webstorage-proxy.min.js"></script>
     <script>
 
+        window.addEventListener('popstate', (event) => {
+            console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+        });
+
         const proxyPromise = new Proxy(new Promise(resolve => {
             setTimeout(() => resolve(), 3000)
         }), {
