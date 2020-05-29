@@ -12,7 +12,7 @@ const app = require("koa-websocket")(new Koa());
 
 app.ws.use(
   route.all("/websocket", ctx => {
-    // setInterval(() =>  ctx.websocket.send(i ++), 1234) 
+    // setInterval(() =>  ctx.websocket.send(i ++), 1234)
   })
 );
 
