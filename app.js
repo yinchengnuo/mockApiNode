@@ -38,6 +38,7 @@ app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
 apis(router) // 一些方法自定义接口
+require('./util/api.js')(app) //api接口
 
 app.use(router.routes()).use(router.allowedMethods()); //路由中间件
 
