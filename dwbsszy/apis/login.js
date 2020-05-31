@@ -58,7 +58,7 @@ module.exports = router => {  //登陆接口
                 nickname: '忙着长大',
                 avatar: '',
                 phone: '18333333333',
-                level: '代理公司',
+                level: '皇冠代理',
                 sign_up: false,
                 sign_start_time: '2020-15-20',
                 sign_end_time: '2020-15-22',

@@ -16,7 +16,7 @@ module.exports = router => {
         pass_satatus: false,
         store: true,
         money: 9999,
-        level: "代理公司", // 用户等级
+        level: "皇冠代理", // 用户等级
         level_change: 1, // 用户等级变化情况
         order_num1: 11,
         order_num2: 22,
