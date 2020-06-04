@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0cfaef"],{6582:function(n,t,e){"use strict";e.r(t);var c=function(n,t){var e=t._c;return e("div",{staticStyle:{"text-align":"center","font-size":"123px","margin-top":"222px"}},[t._v("菜单 1-2-1")])},a=[],i=e("2877"),u={},l=Object(i["a"])(u,c,a,!0,null,null,null);t["default"]=l.exports}}]);
