@@ -38,7 +38,7 @@ app.use(static("./")); //静态文件中间件
 
 app.use(async (ctx, next) => { // cdn 加速中间件
   await next() // 等待请求执行完毕
-    ctx.set('Cache-Control', '')
+    ctx.set('Cache-Control', ' ')
   }
 )
 
