@@ -35,6 +35,13 @@ app.use(async (ctx, next) => { // history 中间件
   }
 })
 app.use(static("./")); //静态文件中间件
+
+app.use(async (ctx, next) => { // cdn 加速中间件
+  await next() // 等待请求执行完毕
+    ctx.set('Cache-Control', '')
+  }
+)
+
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
 apis(router) // 一些方法自定义接口
