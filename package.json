@@ -20,6 +20,7 @@
     "bufferutil": "^4.0.1",
     "koa": "^2.8.1",
     "koa-body": "^4.1.1",
+    "koa-cache-control": "^2.0.0",
     "koa-compress": "^3.0.0",
     "koa-cors": "0.0.16",
     "koa-route": "^3.2.0",

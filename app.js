@@ -9,6 +9,7 @@ const static = require("koa-static");
 const router = require("koa-router")();
 const compress = require("koa-compress");
 const app = require("koa-websocket")(new Koa());
+const cacheControl = require('koa-cache-control');
 
 app.ws.use(
   route.all("/websocket", ctx => {
@@ -34,6 +35,7 @@ app.use(async (ctx, next) => { // history 中间件
     ctx.body= fs.readFileSync('.' + path + 'index.html') // 修改响应体
   }
 })
+app.use(cacheControl({ maxAge: 31536000 })) // 缓存
 app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
