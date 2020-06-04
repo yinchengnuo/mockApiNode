@@ -35,7 +35,7 @@ app.use(async (ctx, next) => { // history 中间件
     ctx.body= fs.readFileSync('.' + path + 'index.html') // 修改响应体
   }
 })
-app.use(cacheControl({ maxAge: 31536000 })) // 缓存
+app.use(cacheControl({ maxAge: 31536000 })) // 协商缓存
 app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
