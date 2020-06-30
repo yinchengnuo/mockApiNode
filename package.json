@@ -20,6 +20,7 @@
     "bufferutil": "^4.0.1",
     "koa": "^2.8.1",
     "koa-body": "^4.1.1",
+    "koa-cache-control": "^2.0.0",
     "koa-compress": "^3.0.0",
     "koa-cors": "0.0.16",
     "koa-route": "^3.2.0",
@@ -29,5 +30,8 @@
     "koa-websocket": "^6.0.0",
     "nodemon": "^1.19.2",
     "utf-8-validate": "^5.0.2"
+  },
+  "devDependencies": {
+    "puppeteer": "^4.0.1"
   }
 }
