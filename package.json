@@ -30,5 +30,8 @@
     "koa-websocket": "^6.0.0",
     "nodemon": "^1.19.2",
     "utf-8-validate": "^5.0.2"
+  },
+  "devDependencies": {
+    "puppeteer": "^4.0.1"
   }
 }

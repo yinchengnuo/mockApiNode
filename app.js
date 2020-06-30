@@ -2,6 +2,7 @@ const fs = require("fs");
 const Koa = require("koa");
 const apis = require("./api")
 const https = require("https");
+const axios = require('axios');
 const body = require("koa-body");
 const cors = require("koa-cors");
 const route = require("koa-route");
@@ -74,3 +75,29 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   
   app80.listen(81)
 }
+
+// const hour = 7
+// const minite = 40
+// const second = 0
+// const milli = 100
+
+const hour = 20
+const minite = 44
+const second = 0
+const milli = 200
+
+const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=1593498486691&ak=F5845959-A708-48D3-B00F-A99A977C4926&akregid=18071adc038aa45e0b0&cf=3&pgid=01&kid=1210&cmd=ckTimeOrder_add_proc&para=`
+
+setInterval(() => {
+  let today = new Date();
+  let tomorrow = new Date(Date.now() + 86400000)
+  let query = `{"jxcarid":"1403","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"08:00:00", "jtosjz":"08:30:00","jtolx":"0","nomsg":"1"}`
+  // console.log(query)
+  if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
+    if (today.getMilliseconds() < milli) {
+      axios.get(`${url}${encodeURIComponent(query)}`).then(res => {
+        console.log(res.data)
+      })
+    }
+  }
+}, 24)
