@@ -77,8 +77,8 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   app80.listen(81)
 }
 
-const hour = 8
-const minite = 11
+const hour = 7
+const minite = 40
 const second = 0
 const milli = 200
 
