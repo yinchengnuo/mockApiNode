@@ -8,6 +8,7 @@ const cors = require("koa-cors");
 const route = require("koa-route");
 const static = require("koa-static");
 const router = require("koa-router")();
+const CronJob = require('cron').CronJob;
 const compress = require("koa-compress");
 const app = require("koa-websocket")(new Koa());
 const cacheControl = require('koa-cache-control');
@@ -41,7 +42,7 @@ app.use(static("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
 apis(router) // 一些方法自定义接口
-require('./util/api.js')(app) //api接口
+// require('./util/api.js')(app) //api接口
 
 app.use(router.routes()).use(router.allowedMethods()); //路由中间件
 
@@ -76,28 +77,28 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   app80.listen(81)
 }
 
-// const hour = 7
-// const minite = 40
-// const second = 0
-// const milli = 100
-
-const hour = 20
-const minite = 44
+const hour = 8
+const minite = 11
 const second = 0
 const milli = 200
 
-const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=1593498486691&ak=F5845959-A708-48D3-B00F-A99A977C4926&akregid=18071adc038aa45e0b0&cf=3&pgid=01&kid=1210&cmd=ckTimeOrder_add_proc&para=`
-
-setInterval(() => {
-  let today = new Date();
-  let tomorrow = new Date(Date.now() + 86400000)
-  let query = `{"jxcarid":"1403","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"08:00:00", "jtosjz":"08:30:00","jtolx":"0","nomsg":"1"}`
-  // console.log(query)
-  if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
-    if (today.getMilliseconds() < milli) {
-      axios.get(`${url}${encodeURIComponent(query)}`).then(res => {
-        console.log(res.data)
-      })
+;(new CronJob(`${second} ${minite} ${hour} * * *`, () => {
+  const timer = setInterval(() => {
+    const today = new Date();
+    const tomorrow = new Date(Date.now() + 86400000)
+    const query = `{"jxcarid":"1403","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"08:00:00", "jtosjz":"08:30:00","jtolx":"0","nomsg":"1"}`
+    const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=F5845959-A708-48D3-B00F-A99A977C4926&akregid=140fe1da9e34a2be907&cf=3&pgid=3207&kid=1210&cmd=ckTimeOrder_add_proc&para=`
+    if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
+      if (today.getMilliseconds() < milli) {
+        axios.get(`${url}${encodeURIComponent(query)}`).then(res => {
+          console.log(res.data)
+          if (res.data.Data.id) {
+            clearInterval(timer)
+          }
+        })
+      } else {
+        clearInterval(timer)
+      }
     }
-  }
-}, 24)
+  }, 10)
+}, null, true)) .start()
