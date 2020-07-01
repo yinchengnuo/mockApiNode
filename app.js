@@ -97,7 +97,7 @@ const kid = '1210'
       if (today.getMilliseconds() < milli) {
         axios.get(`${url}${encodeURIComponent(query)}`).then(({ data }) => {
           if (data.Data.id) {
-            axios.get(`http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=F5845959-A708-48D3-B00F-A99A977C4926&akregid=140fe1da9e34a2be907&cf=3&pgid=3207&kid=1210&cmd=ckTimeOrder_add_procpay&para=%7b%22id%22%3a%22${data.Data.id}%22%2c%22coupid%22%3a%22%22%2c+%22cbdkje%22%3a%220%22%2c%22paytype%22%3a%22%e6%8a%b5%e6%89%a3%22%2c%22nomsg%22%3a%221%22%7d`)
+            axios.get(`http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=3207&kid=1210&cmd=ckTimeOrder_add_procpay&para=%7b%22id%22%3a%22${data.Data.id}%22%2c%22coupid%22%3a%22%22%2c+%22cbdkje%22%3a%220%22%2c%22paytype%22%3a%22%e6%8a%b5%e6%89%a3%22%2c%22nomsg%22%3a%221%22%7d`)
           }
         })
       } else {
