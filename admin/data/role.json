@@ -1,1 +1,375 @@
-[{"id":"0","name":"root","routes":[]},{"id":"1589513322095","name":"admin","routes":[{"path":"/nested","name":"Nested","alwaysShow":true,"component":"","redirect":"/nested/menu1/menu1-1","meta":{"title":"路由嵌套","icon":"路由嵌套"},"children":[{"path":"menu1","name":"Menu1","meta":{"title":"菜单 1","icon":"路由嵌套"},"redirect":"/nested/menu1/menu1-1","children":[{"path":"menu1-1","name":"Menu1-1","meta":{"title":"菜单1-1","icon":"路由嵌套"}},{"path":"menu1-2","name":"Menu1-2","redirect":"/nested/menu1/menu1-2/menu1-2-1","meta":{"title":"菜单1-2","icon":"路由嵌套"},"children":[{"path":"menu1-2-1","name":"Menu1-2-1","meta":{"title":"菜单1-2-1"}},{"path":"menu1-2-2","name":"Menu1-2-2","meta":{"title":"菜单1-2-2"}}]},{"path":"menu1-3","name":"Menu1-3","meta":{"title":"菜单1-3","icon":"路由嵌套"}}]},{"path":"menu2","name":"Menu2","meta":{"title":"菜单 2","icon":"路由嵌套"}}]},{"path":"/code-example","name":"CodeExample","alwaysShow":true,"component":"","redirect":"/code-example/data-map","meta":{"title":"开发示例","icon":"开发示例"},"children":[{"path":"data-map","name":"PageDataMap","meta":{"title":"数据地图","icon":"中国地图"}},{"path":"query-search","name":"PageQuerySearch","meta":{"title":"条件查询","icon":"条件查询"}},{"path":"fast-chart","name":"PageFastChart","meta":{"title":"快速图表","icon":"快速图表"}},{"path":"button-permission","name":"PageButtonPermission","meta":{"title":"按钮权限","icon":"按钮权限","buttonPermission":[{"id":"search","name":"搜索","permission":true},{"id":"add","name":"添加","permission":true},{"id":"del","name":"删除","permission":true}]}},{"path":"unread-message","name":"PageUnreadMessage","meta":{"title":"未读消息","icon":"未读消息"}},{"path":"dynamic-cache","name":"PageDynamicCache","meta":{"title":"动态缓存","icon":"动态缓存"}}]},{"path":"/admin-manage","component":"","alwaysShow":true,"name":"AdminManage","redirect":"/admin-manage/role-manage","meta":{"title":"后台管理","icon":"后台管理"},"children":[{"path":"role-manage","name":"PageRoleManage","meta":{"title":"角色管理","icon":"角色管理","noCache":true}},{"path":"account-manage","name":"PageAccountManage","meta":{"title":"账号管理","icon":"账号管理","noCache":true}}]},{"path":"/tools","component":"","alwaysShow":true,"name":"NestedTools","redirect":"/tools/express-query","meta":{"title":"工具箱","icon":"工具箱"},"children":[{"path":"download-excel","name":"PageDownloadExcel","meta":{"title":"下载Excel","icon":"下载Excel"}},{"path":"upload-excel","name":"PageUploadExcel","meta":{"title":"上传Excel","icon":"上传Excel"}},{"path":"express-query","name":"PageExpressQuery","meta":{"title":"物流查询","icon":"物流查询"}}]}]}]
+[
+    {
+        "id": "0",
+        "name": "root",
+        "routes": []
+    },
+    {
+        "id": "1589513322095",
+        "name": "admin",
+        "routes": [
+            {
+                "path": "/nested",
+                "name": "Nested",
+                "alwaysShow": true,
+                "component": "",
+                "redirect": "/nested/menu1/menu1-1",
+                "meta": {
+                    "title": "路由嵌套",
+                    "icon": "路由嵌套"
+                },
+                "children": [
+                    {
+                        "path": "menu1",
+                        "name": "Menu1",
+                        "meta": {
+                            "title": "菜单 1",
+                            "icon": "路由嵌套"
+                        },
+                        "redirect": "/nested/menu1/menu1-1",
+                        "children": [
+                            {
+                                "path": "menu1-1",
+                                "name": "Menu1-1",
+                                "meta": {
+                                    "title": "菜单1-1",
+                                    "icon": "路由嵌套"
+                                }
+                            },
+                            {
+                                "path": "menu1-2",
+                                "name": "Menu1-2",
+                                "redirect": "/nested/menu1/menu1-2/menu1-2-1",
+                                "meta": {
+                                    "title": "菜单1-2",
+                                    "icon": "路由嵌套"
+                                },
+                                "children": [
+                                    {
+                                        "path": "menu1-2-1",
+                                        "name": "Menu1-2-1",
+                                        "meta": {
+                                            "title": "菜单1-2-1"
+                                        }
+                                    },
+                                    {
+                                        "path": "menu1-2-2",
+                                        "name": "Menu1-2-2",
+                                        "meta": {
+                                            "title": "菜单1-2-2"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "path": "menu1-3",
+                                "name": "Menu1-3",
+                                "meta": {
+                                    "title": "菜单1-3",
+                                    "icon": "路由嵌套"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "path": "menu2",
+                        "name": "Menu2",
+                        "meta": {
+                            "title": "菜单 2",
+                            "icon": "路由嵌套"
+                        }
+                    }
+                ]
+            },
+            {
+                "path": "/code-example",
+                "name": "CodeExample",
+                "alwaysShow": true,
+                "component": "",
+                "redirect": "/code-example/data-map",
+                "meta": {
+                    "title": "开发示例",
+                    "icon": "开发示例"
+                },
+                "children": [
+                    {
+                        "path": "data-map",
+                        "name": "PageDataMap",
+                        "meta": {
+                            "title": "数据地图",
+                            "icon": "中国地图"
+                        }
+                    },
+                    {
+                        "path": "query-search",
+                        "name": "PageQuerySearch",
+                        "meta": {
+                            "title": "条件查询",
+                            "icon": "条件查询"
+                        }
+                    },
+                    {
+                        "path": "fast-chart",
+                        "name": "PageFastChart",
+                        "meta": {
+                            "title": "快速图表",
+                            "icon": "快速图表"
+                        }
+                    },
+                    {
+                        "path": "button-permission",
+                        "name": "PageButtonPermission",
+                        "meta": {
+                            "title": "按钮权限",
+                            "icon": "按钮权限",
+                            "buttonPermission": [
+                                {
+                                    "id": "search",
+                                    "name": "搜索",
+                                    "permission": true
+                                },
+                                {
+                                    "id": "add",
+                                    "name": "添加",
+                                    "permission": true
+                                },
+                                {
+                                    "id": "del",
+                                    "name": "删除",
+                                    "permission": true
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "path": "unread-message",
+                        "name": "PageUnreadMessage",
+                        "meta": {
+                            "title": "未读消息",
+                            "icon": "未读消息"
+                        }
+                    },
+                    {
+                        "path": "dynamic-cache",
+                        "name": "PageDynamicCache",
+                        "meta": {
+                            "title": "动态缓存",
+                            "icon": "动态缓存"
+                        }
+                    }
+                ]
+            },
+            {
+                "path": "/admin-manage",
+                "component": "",
+                "alwaysShow": true,
+                "name": "AdminManage",
+                "redirect": "/admin-manage/role-manage",
+                "meta": {
+                    "title": "后台管理",
+                    "icon": "后台管理"
+                },
+                "children": [
+                    {
+                        "path": "role-manage",
+                        "name": "PageRoleManage",
+                        "meta": {
+                            "title": "角色管理",
+                            "icon": "角色管理",
+                            "noCache": true
+                        }
+                    },
+                    {
+                        "path": "account-manage",
+                        "name": "PageAccountManage",
+                        "meta": {
+                            "title": "账号管理",
+                            "icon": "账号管理",
+                            "noCache": true
+                        }
+                    }
+                ]
+            },
+            {
+                "path": "/tools",
+                "component": "",
+                "alwaysShow": true,
+                "name": "NestedTools",
+                "redirect": "/tools/express-query",
+                "meta": {
+                    "title": "工具箱",
+                    "icon": "工具箱"
+                },
+                "children": [
+                    {
+                        "path": "download-excel",
+                        "name": "PageDownloadExcel",
+                        "meta": {
+                            "title": "下载Excel",
+                            "icon": "下载Excel"
+                        }
+                    },
+                    {
+                        "path": "upload-excel",
+                        "name": "PageUploadExcel",
+                        "meta": {
+                            "title": "上传Excel",
+                            "icon": "上传Excel"
+                        }
+                    },
+                    {
+                        "path": "express-query",
+                        "name": "PageExpressQuery",
+                        "meta": {
+                            "title": "物流查询",
+                            "icon": "物流查询"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "1594346389247",
+        "name": "new",
+        "routes": [
+            {
+                "path": "/code-example",
+                "name": "CodeExample",
+                "component": "",
+                "redirect": "/code-example/data-map",
+                "meta": {
+                    "title": "开发示例",
+                    "icon": "开发示例"
+                },
+                "children": [
+                    {
+                        "path": "data-map",
+                        "name": "PageDataMap",
+                        "meta": {
+                            "title": "数据地图",
+                            "icon": "中国地图"
+                        }
+                    },
+                    {
+                        "path": "query-search",
+                        "name": "PageQuerySearch",
+                        "meta": {
+                            "title": "条件查询",
+                            "icon": "条件查询"
+                        }
+                    },
+                    {
+                        "path": "fast-chart",
+                        "name": "PageFastChart",
+                        "meta": {
+                            "title": "快速图表",
+                            "icon": "快速图表"
+                        }
+                    },
+                    {
+                        "path": "button-permission",
+                        "name": "PageButtonPermission",
+                        "meta": {
+                            "title": "按钮权限",
+                            "icon": "按钮权限",
+                            "buttonPermission": [
+                                {
+                                    "id": "search",
+                                    "name": "搜索",
+                                    "permission": true
+                                },
+                                {
+                                    "id": "add",
+                                    "name": "添加",
+                                    "permission": true
+                                },
+                                {
+                                    "id": "del",
+                                    "name": "删除",
+                                    "permission": false
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "path": "unread-message",
+                        "name": "PageUnreadMessage",
+                        "meta": {
+                            "title": "未读消息",
+                            "icon": "未读消息"
+                        }
+                    },
+                    {
+                        "path": "dynamic-cache",
+                        "name": "PageDynamicCache",
+                        "meta": {
+                            "title": "动态缓存",
+                            "icon": "动态缓存"
+                        }
+                    },
+                    {
+                        "path": "multiple-dialog",
+                        "name": "PageMultipleDialog",
+                        "meta": {
+                            "title": "多对话框",
+                            "icon": "多对话框"
+                        }
+                    },
+                    {
+                        "path": "live-streaming",
+                        "name": "PageLiveStreaming",
+                        "meta": {
+                            "title": "直播拉流",
+                            "icon": "直播拉流"
+                        }
+                    }
+                ]
+            },
+            {
+                "path": "/tools",
+                "component": "",
+                "name": "NestedTools",
+                "redirect": "/tools/express-query",
+                "meta": {
+                    "title": "工具箱",
+                    "icon": "工具箱"
+                },
+                "children": [
+                    {
+                        "path": "download-excel",
+                        "name": "PageDownloadExcel",
+                        "meta": {
+                            "title": "下载Excel",
+                            "icon": "下载Excel"
+                        }
+                    },
+                    {
+                        "path": "upload-excel",
+                        "name": "PageUploadExcel",
+                        "meta": {
+                            "title": "上传Excel",
+                            "icon": "上传Excel"
+                        }
+                    },
+                    {
+                        "path": "express-query",
+                        "name": "PageExpressQuery",
+                        "meta": {
+                            "title": "物流查询",
+                            "icon": "物流查询"
+                        }
+                    },
+                    {
+                        "path": "picture-compression",
+                        "name": "PagePictureCompression",
+                        "meta": {
+                            "title": "图片压缩",
+                            "icon": "图片压缩"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

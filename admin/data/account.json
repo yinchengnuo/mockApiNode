@@ -1,16 +1,1 @@
-[
-    {
-        "id": "0",
-        "name": "椒麻鸡",
-        "password": "123456",
-        "avatar": "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
-        "role": "root"
-    },
-    {
-        "id": "1589508605121",
-        "name": "黄焖鸡",
-        "password": "123456",
-        "avatar": "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
-        "role": "admin"
-    }
-]
+[{"id":"0","name":"椒麻鸡","password":"123456","avatar":"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif","role":"root"},{"id":"1589508605121","name":"黄焖鸡","password":"123456","avatar":"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif","role":"admin"},{"id":"1594346557038","name":"new","password":"123456","avatar":"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif","role":"new"},{"id":"1594347361306","name":"new2","password":"123456","avatar":"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif","role":"new"},{"id":"1594347382759","name":"new3","password":"123456","avatar":"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif","role":"new"},{"id":"1594347450939","name":"new4","password":"123456","avatar":"https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif","role":"new"}]
