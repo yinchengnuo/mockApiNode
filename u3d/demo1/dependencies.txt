@@ -1,0 +1,15 @@
+com.unity.ext.nunit@1.0.0
+com.unity.editorcoroutines@0.1.0-preview.1
+com.unity.learn.iet-framework@0.3.0-preview.5
+com.unity.probuilder@4.2.3
+com.unity.progrids@3.0.3-preview.5
+com.unity.ide.rider@1.1.4
+com.unity.settings-manager@1.0.1
+com.unity.connect.share@1.2.0-preview.1
+com.unity.test-framework@1.1.14
+com.unity.textmeshpro@2.0.1
+com.unity.timeline@1.2.15
+com.unity.collab-proxy@1.2.16
+com.unity.ugui@1.0.0
+com.unity.ide.vscode@1.2.1
+com.unity.template.fps@1.1.2-preview.1
