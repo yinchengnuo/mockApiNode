@@ -17,7 +17,7 @@ app.ws.use(
   route.all("/websocket", ctx => {
     // setInterval(() =>  ctx.websocket.send(i ++), 1234)
   })
-);
+)
 
 app.use(cors()); //允许跨域
 app.use(body({ multipart: true })) //获取post请求体中间件
