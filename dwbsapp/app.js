@@ -20,7 +20,7 @@ module.exports = app => {
         { family: 'Pacifico', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Pacifico.ttf")' },
         { family: 'LeftoversII2', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/LeftoversII2.ttf")' },
         { family: 'Monkeyboy', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Monkeyboy.ttf")' },
-        { family: '书体坊颜体', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊颜体.ttf")' },
+        // { family: '书体坊颜体', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊颜体.ttf")' },
       ]
     };
   });
