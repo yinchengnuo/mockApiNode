@@ -17,7 +17,7 @@ app.ws.use(
   route.all("/websocket", ctx => {
     // setInterval(() =>  ctx.websocket.send(i ++), 1234)
   })
-)
+);
 
 app.use(cors()); //允许跨域
 app.use(body({ multipart: true })) //获取post请求体中间件
@@ -77,16 +77,16 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   app80.listen(81)
 }
 
-// const hour = 7
-// const minite = 40
-// const second = 0
-// const milli = 200
+const hour = 7
+const minite = 40
+const second = 0
+const milli = 200
 
-// const ak = 'F5845959-A708-48D3-B00F-A99A977C4926'
-// const akregid = '140fe1da9e34a2be907'
-// const pgid = '3207'
-// const kid = '1210'
-// const jxcarid = '1647'
+const ak = 'F5845959-A708-48D3-B00F-A99A977C4926'
+const akregid = '140fe1da9e34a2be907'
+const pgid = '3207'
+const kid = '1210'
+const jxcarid = '1647'
 
 ;(new CronJob(`${second} ${minite} ${hour} * * *`, () => {
   const timer = setInterval(() => {
