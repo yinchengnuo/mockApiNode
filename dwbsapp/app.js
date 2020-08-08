@@ -22,49 +22,42 @@ module.exports = app => {
           source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/Pacifico.ttf")',
           lang: 'en',
           size: '10KB',
-          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/Pacifico.png' 
         },
         {
           family: 'LeftoversII2',
           source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/LeftoversII2.ttf")',
           lang: 'en',
           size: '10KB',
-          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/LeftoversII2.png' 
         },
         {
           family: 'Monkeyboy',
           source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/Monkeyboy.ttf")',
           lang: 'en',
           size: '10KB',
-          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
-        },
-        {
-          family: '赵九江钢笔楷书体',
-          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊赵九江钢笔楷书体.ttf")',
-          lang: 'zh',
-          size: '10KB',
-          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/Monkeyboy.png' 
         },
         {
           family: '米芾字体',
           source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/米芾字体.ttf")',
           lang: 'zh',
           size: '10KB',
-          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/米芾字体.png' 
         },
         {
           family: '书体坊兰亭体',
           source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊兰亭体.ttf")',
           lang: 'zh',
           size: '10KB',
-          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/书体坊兰亭体.png' 
         },
         {
           family: '书体坊颜体',
           source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊颜体.ttf")',
           lang: 'zh',
           size: '10KB',
-          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/书体坊颜体.png' 
         },
       ]
     };
