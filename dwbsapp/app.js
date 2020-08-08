@@ -17,48 +17,10 @@ module.exports = app => {
       code: 200,
       message: "字体列表",
       data: [
-        {
-          family: 'Pacifico',
-          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/Pacifico.ttf")',
-          lang: 'en',
-          size: '10KB',
-          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/Pacifico.png' 
-        },
-        {
-          family: 'LeftoversII2',
-          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/LeftoversII2.ttf")',
-          lang: 'en',
-          size: '10KB',
-          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/LeftoversII2.png' 
-        },
-        {
-          family: 'Monkeyboy',
-          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/Monkeyboy.ttf")',
-          lang: 'en',
-          size: '10KB',
-          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/Monkeyboy.png' 
-        },
-        {
-          family: '米芾字体',
-          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/米芾字体.ttf")',
-          lang: 'zh',
-          size: '10KB',
-          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/米芾字体.png' 
-        },
-        {
-          family: '书体坊兰亭体',
-          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊兰亭体.ttf")',
-          lang: 'zh',
-          size: '10KB',
-          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/书体坊兰亭体.png' 
-        },
-        {
-          family: '书体坊颜体',
-          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊颜体.ttf")',
-          lang: 'zh',
-          size: '10KB',
-          preview: 'https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/preview/书体坊颜体.png' 
-        },
+        { family: 'Pacifico', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Pacifico.ttf")' },
+        { family: 'LeftoversII2', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/LeftoversII2.ttf")' },
+        { family: 'Monkeyboy', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Monkeyboy.ttf")' },
+        { family: '书体坊颜体', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊颜体.ttf")' },
       ]
     };
   });
