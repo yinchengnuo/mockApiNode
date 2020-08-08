@@ -17,13 +17,55 @@ module.exports = app => {
       code: 200,
       message: "字体列表",
       data: [
-        { family: 'Pacifico', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/Pacifico.ttf")' },
-        { family: 'LeftoversII2', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/LeftoversII2.ttf")' },
-        { family: 'Monkeyboy', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/Monkeyboy.ttf")' },
-        // { family: '赵九江钢笔楷书体', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊赵九江钢笔楷书体.ttf")' },
-        // { family: '米芾字体', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/米芾字体.ttf")' },
-        // { family: '书体坊兰亭体', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊兰亭体.ttf")' },
-        // { family: '书体坊颜体', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊颜体.ttf")' },
+        {
+          family: 'Pacifico',
+          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/Pacifico.ttf")',
+          lang: 'en',
+          size: '10KB',
+          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+        },
+        {
+          family: 'LeftoversII2',
+          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/LeftoversII2.ttf")',
+          lang: 'v',
+          size: '10KB',
+          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+        },
+        {
+          family: 'Monkeyboy',
+          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/Monkeyboy.ttf")',
+          lang: 'en',
+          size: '10KB',
+          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+        },
+        {
+          family: '赵九江钢笔楷书体',
+          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊赵九江钢笔楷书体.ttf")',
+          lang: 'zh',
+          size: '10KB',
+          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+        },
+        {
+          family: '米芾字体',
+          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/米芾字体.ttf")',
+          lang: 'zh',
+          size: '10KB',
+          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+        },
+        {
+          family: '书体坊兰亭体',
+          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊兰亭体.ttf")',
+          lang: 'zh',
+          size: '10KB',
+          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+        },
+        {
+          family: '书体坊颜体',
+          source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊颜体.ttf")',
+          lang: 'zh',
+          size: '10KB',
+          preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
+        },
       ]
     };
   });
