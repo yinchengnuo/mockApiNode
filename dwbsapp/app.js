@@ -27,7 +27,7 @@ module.exports = app => {
         {
           family: 'LeftoversII2',
           source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/LeftoversII2.ttf")',
-          lang: 'v',
+          lang: 'en',
           size: '10KB',
           preview: 'https://img.cdn.aliyun.dcloud.net.cn/dev/img/ext/plugin-match.png' 
         },
