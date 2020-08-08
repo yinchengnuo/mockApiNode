@@ -6,6 +6,7 @@ module.exports = router => {
     const userList = []
 
     router.get('/role/all', async ctx => {
+        console.log(JSON.parse(fs.readFileSync('./admin/data/role.json').toString()))
         ctx.body = {
             code: 200,
             message: '获取角色列表成功',
@@ -52,6 +53,7 @@ module.exports = router => {
     })
 
     router.get('/account/all', async ctx => {
+        console.log(JSON.parse(fs.readFileSync('./admin/data/account.json').toString()))
         ctx.body = {
             code: 200,
             message: '获取账号列表成功',

@@ -15,6 +15,7 @@ module.exports = async router => {
     const pageList = [] // page 实例列表
     const requestList = [] // 待处理单号
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
+    // const browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certificate-errors'] })
     for(let i = 0; i < pageNum; i ++) { // 初始化指定数量的 page 配置
         const page = await browser.newPage() // 生成 page 实例
         page.goto('https://www.kuaidi100.com/', { timeout: 0, waitUntil: 'domcontentloaded' }).then(() => nowPageNum ++) // 页面加载完成后标记可用页面个数
@@ -54,6 +55,18 @@ module.exports = async router => {
             free ? free.request(order_num) : requestList.push(order_num) // 有空闲 page 就执行爬取，否则推入 requestList 等待
         }
     }
+
+    // const yueche = await browser.newPage() // 生成 page 实例
+    // await yueche.goto('http://yylkyljx.ay001.net/NMobile/mLogin.htm', { timeout: 0, waitUntil: 'domcontentloaded' })
+    // const yuecheinput1 = await yueche.$('#txtUser')
+    // const yuecheinput2 = await yueche.$('#txtPassWD')
+    // await yuecheinput1.type('410225200102282012')
+    // await yuecheinput2.type('6428@@wjlxYL0')
+    // const yuechelogin = await yueche.$('#btnLogin') // 获取按钮
+    // await yuechelogin.click() // 触发按钮点击
+    
+    // setTimeout(async () => yueche.evaluate(() => setInterval(() => window.scrollTo(0, Date.now()), 1234)), 2333)
+
 
     event.on('REQUEST_OK', () => requestList.length && distribute(requestList.splice(0, 1)[0])) // 当有订单爬取成功且 requestList 有等待订单，重新分发)
 
