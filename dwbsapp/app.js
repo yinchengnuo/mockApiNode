@@ -31,7 +31,6 @@ module.exports = app => {
   router.get("/check", async ctx => {
     const access_token = (await axios.get(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${'wxb0566d7e65e76589'}&secret=${'18a564e87cc37cd62d58f3f40fcc6500'}`)).data.access_token
     const data = (await axios.post(`https://api.weixin.qq.com/wxa/msg_sec_check?access_token=${access_token}`, { content: ctx.query.content })).data
-    console.log(data)
     ctx.body = {
       code: 200,
       message: "检查一段文本是否含有违法违规内容。",
