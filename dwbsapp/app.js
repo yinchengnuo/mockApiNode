@@ -20,13 +20,9 @@ module.exports = app => {
       code: 200,
       message: "字体列表",
       data: [
-        { family: 'licorice', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/licorice.ttf")' },
         { family: 'Machinegun', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Machinegun.ttf")' },
         { family: 'MaximalBeasts', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/MaximalBeasts.ttf")' },
-        { family: 'Nugsoth', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Nugsoth.ttf")' },
-        { family: 'realpol', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/realpol.ttf")' },
         { family: 'RumBubber', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/RumBubber.ttf")' },
-        { family: 'Xlines', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Xlines.ttf")' },
         { family: 'Yerevan', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Yerevan.ttf")' },
         { family: 'zx81', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/zx81.ttf")' },
       ]
