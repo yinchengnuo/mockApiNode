@@ -20,10 +20,15 @@ module.exports = app => {
       code: 200,
       message: "字体列表",
       data: [
-        { family: 'Pacifico', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Pacifico.ttf")' },
-        { family: 'LeftoversII2', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/LeftoversII2.ttf")' },
-        { family: 'Monkeyboy', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Monkeyboy.ttf")' },
-        // { family: '书体坊颜体', source: 'url("https://static-5fefd627-e113-49d6-81a0-f65e160fb88b.bspapp.com/书体坊颜体.ttf")' },
+        { family: 'licorice', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/licorice.ttf")' },
+        { family: 'Machinegun', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Machinegun.ttf")' },
+        { family: 'MaximalBeasts', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/MaximalBeasts.ttf")' },
+        { family: 'Nugsoth', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Nugsoth.ttf")' },
+        { family: 'realpol', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/realpol.ttf")' },
+        { family: 'RO', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/RO.ttf")' },
+        { family: 'RumBubber', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/RumBubber.ttf")' },
+        { family: 'Xlines', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Xlines.ttf")' },
+        { family: 'Yerevan', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Yerevan.ttf")' },
       ]
     };
   });
