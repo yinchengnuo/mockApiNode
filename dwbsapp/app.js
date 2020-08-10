@@ -25,7 +25,7 @@ module.exports = app => {
         { family: 'MaximalBeasts', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/MaximalBeasts.ttf")' },
         { family: 'Nugsoth', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Nugsoth.ttf")' },
         { family: 'realpol', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/realpol.ttf")' },
-        { family: 'RO', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/RO.ttf")' },
+        { family: 'RO', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/ro.ttf")' },
         { family: 'RumBubber', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/RumBubber.ttf")' },
         { family: 'Xlines', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Xlines.ttf")' },
         { family: 'Yerevan', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Yerevan.ttf")' },
