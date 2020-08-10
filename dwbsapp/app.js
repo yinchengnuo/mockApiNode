@@ -29,6 +29,7 @@ module.exports = app => {
         { family: 'RumBubber', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/RumBubber.ttf")' },
         { family: 'Xlines', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Xlines.ttf")' },
         { family: 'Yerevan', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/Yerevan.ttf")' },
+        { family: 'zx81', source: 'url("https://yinchengnuo.com/static/templateWxappUniapp/fonts/zx81.ttf")' },
       ]
     };
   });
