@@ -1,3 +1,5 @@
+'use strict'
+
 const fs = require("fs");
 const Koa = require("koa");
 const apis = require("./api")
@@ -6,7 +8,7 @@ const axios = require('axios');
 const body = require("koa-body");
 const cors = require("koa-cors");
 const route = require("koa-route");
-const static = require("koa-static");
+const staticm = require("koa-static");
 const router = require("koa-router")();
 const CronJob = require('cron').CronJob;
 const compress = require("koa-compress");
@@ -38,7 +40,7 @@ app.use(async (ctx, next) => { // history 中间件
   }
 })
 app.use(cacheControl({ maxAge: 31536000 })) // 协商缓存
-app.use(static("./")); //静态文件中间件
+app.use(staticm("./")); //静态文件中间件
 app.use(compress({ threshold: 2048 })); //gzip中间件
 
 apis(router) // 一些方法自定义接口
@@ -77,56 +79,69 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   app80.listen(81)
 }
 
-;(new CronJob(`${0} ${40} ${7} * * *`, () => {
+{
+  const hour = 7
+  const minite = 40
+  const second = 0
 
-  const ak = 'F5845959-A708-48D3-B00F-A99A977C4926'
-  const akregid = '140fe1da9e34a2be907'
-  const pgid = '3207'
-  const kid = '1210'
-  const jxcarid = '1647'
-  const timer = setInterval(() => {
-    const today = new Date();
-    const tomorrow = new Date(Date.now() + 86400000)
-    const query = `{"jxcarid":"${jxcarid}","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"08:00:00", "jtosjz":"08:30:00","jtolx":"0","nomsg":"1"}`
-    const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=${pgid}&kid=${kid}&cmd=ckTimeOrder_add_proc&para=`
-    if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
-      if (today.getMilliseconds() < 200) {
-        axios.get(`${url}${encodeURIComponent(query)}`).then(({ data }) => {
-          console.log(data)
-          if (data.Data.id) {
-            axios.get(`http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=3207&kid=1210&cmd=ckTimeOrder_add_procpay&para=%7b%22id%22%3a%22${data.Data.id}%22%2c%22coupid%22%3a%22%22%2c+%22cbdkje%22%3a%220%22%2c%22paytype%22%3a%22%e6%8a%b5%e6%89%a3%22%2c%22nomsg%22%3a%221%22%7d`)
-          }
-        })
-      } else {
-        clearInterval(timer)
+  ;(new CronJob(`${second} ${minite} ${hour} * * *`, () => {
+
+    const ak = 'F5845959-A708-48D3-B00F-A99A977C4926'
+    const akregid = '140fe1da9e34a2be907'
+    const pgid = '3207'
+    const kid = '1210'
+    const jxcarid = '1647'
+    const timer = setInterval(() => {
+      const today = new Date();
+      const tomorrow = new Date(Date.now() + 86400000)
+      const query = `{"jxcarid":"${jxcarid}","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"08:00:00", "jtosjz":"08:30:00","jtolx":"0","nomsg":"1"}`
+      const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=${pgid}&kid=${kid}&cmd=ckTimeOrder_add_proc&para=`
+      if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
+        if (today.getMilliseconds() < 200) {
+          axios.get(`${url}${encodeURIComponent(query)}`).then(({ data }) => {
+            console.log(data)
+            if (data.Data.id) {
+              axios.get(`http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=3207&kid=1210&cmd=ckTimeOrder_add_procpay&para=%7b%22id%22%3a%22${data.Data.id}%22%2c%22coupid%22%3a%22%22%2c+%22cbdkje%22%3a%220%22%2c%22paytype%22%3a%22%e6%8a%b5%e6%89%a3%22%2c%22nomsg%22%3a%221%22%7d`)
+            }
+          })
+        } else {
+          clearInterval(timer)
+        }
       }
-    }
-  }, 10)
-}, null, true)) .start()
+    }, 10)
+  }, null, true)) .start()
+}
 
-;(new CronJob(`${0} ${0} ${20} * * *`, () => {
 
-  const ak = 'CAD5CBE3-5719-4377-A803-887963031A92'
-  const akregid = '1517bfd3f74e3c6ac69'
-  const pgid = '3207'
-  const kid = '1008'
-  const jxcarid = '1109'
-  const timer = setInterval(() => {
-    const today = new Date();
-    const tomorrow = new Date(Date.now() + 86400000)
-    const query = `{"jxcarid":"${jxcarid}","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"08:00:00", "jtosjz":"08:30:00","jtolx":"0","nomsg":"1"}`
-    const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=${pgid}&kid=${kid}&cmd=ckTimeOrder_add_proc&para=`
-    if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
-      if (today.getMilliseconds() < 200) {
-        axios.get(`${url}${encodeURIComponent(query)}`).then(({ data }) => {
-          console.log(data)
-          if (data.Data.id) {
-            axios.get(`http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=3207&kid=1210&cmd=ckTimeOrder_add_procpay&para=%7b%22id%22%3a%22${data.Data.id}%22%2c%22coupid%22%3a%22%22%2c+%22cbdkje%22%3a%220%22%2c%22paytype%22%3a%22%e6%8a%b5%e6%89%a3%22%2c%22nomsg%22%3a%221%22%7d`)
-          }
-        })
-      } else {
-        clearInterval(timer)
+{
+  const hour = 20
+  const minite = 0
+  const second = 0
+
+  ;(new CronJob(`${second} ${minite} ${hour} * * *`, () => {
+
+    const ak = 'CAD5CBE3-5719-4377-A803-887963031A92'
+    const akregid = '1517bfd3f74e3c6ac69'
+    const pgid = '3207'
+    const kid = '1008'
+    const jxcarid = '1109'
+    const timer = setInterval(() => {
+      const today = new Date();
+      const tomorrow = new Date(Date.now() + 86400000)
+      const query = `{"jxcarid":"${jxcarid}","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"08:00:00", "jtosjz":"08:30:00","jtolx":"0","nomsg":"1"}`
+      const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=${pgid}&kid=${kid}&cmd=ckTimeOrder_add_proc&para=`
+      if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
+        if (today.getMilliseconds() < 200) {
+          axios.get(`${url}${encodeURIComponent(query)}`).then(({ data }) => {
+            console.log(data)
+            if (data.Data.id) {
+              axios.get(`http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=3207&kid=1210&cmd=ckTimeOrder_add_procpay&para=%7b%22id%22%3a%22${data.Data.id}%22%2c%22coupid%22%3a%22%22%2c+%22cbdkje%22%3a%220%22%2c%22paytype%22%3a%22%e6%8a%b5%e6%89%a3%22%2c%22nomsg%22%3a%221%22%7d`)
+            }
+          })
+        } else {
+          clearInterval(timer)
+        }
       }
-    }
-  }, 10)
-}, null, true)) .start()
+    }, 10)
+  }, null, true)) .start()
+}

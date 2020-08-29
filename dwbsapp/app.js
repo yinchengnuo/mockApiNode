@@ -38,9 +38,7 @@ module.exports = app => {
       data
     };
   });
-
-
-
+  
   require("./apis/app")(router); // app 升级信息相关
   require("./apis/user")(router); // 用户信息相关
   require("./apis/good")(router); // 商品相关
