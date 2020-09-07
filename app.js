@@ -57,8 +57,8 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   app.listen(80, () => console.log("服务器启动成功"))
 } else {
   https.createServer({
-    key: fs.readFileSync("../https/https.key"),
-    cert: fs.readFileSync("../https/https.pem")
+    key: fs.readFileSync("./https/https.key"),
+    cert: fs.readFileSync("./https/https.crt")
   }, app.callback()).listen(443, async () => console.log("服务器启动成功"))
 
   const app80 = new Koa();
