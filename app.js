@@ -85,7 +85,6 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   const second = 0
 
   ;(new CronJob(`${second} ${minite} ${hour} * * *`, () => {
-
     const ak = 'F5845959-A708-48D3-B00F-A99A977C4926'
     const akregid = '140fe1da9e34a2be907'
     const pgid = '3207'
@@ -119,7 +118,6 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   const second = 0
 
   ;(new CronJob(`${second} ${minite} ${hour} * * *`, () => {
-
     const ak = 'CAD5CBE3-5719-4377-A803-887963031A92'
     const akregid = '1517bfd3f74e3c6ac69'
     const pgid = '3207'
