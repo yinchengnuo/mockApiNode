@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 const Koa = require("koa");
-const apis = require("./api")
+const apis = require("./api");
 const https = require("https");
 const axios = require('axios');
 const body = require("koa-body");
@@ -57,8 +57,8 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   app.listen(80, () => console.log("服务器启动成功"))
 } else {
   https.createServer({
-    key: fs.readFileSync("../https/https.key"),
-    cert: fs.readFileSync("../https/https.pem")
+    key: fs.readFileSync("./https/https.key"),
+    cert: fs.readFileSync("./https/https.crt")
   }, app.callback()).listen(443, async () => console.log("服务器启动成功"))
 
   const app80 = new Koa();
@@ -85,7 +85,6 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   const second = 0
 
   ;(new CronJob(`${second} ${minite} ${hour} * * *`, () => {
-
     const ak = 'F5845959-A708-48D3-B00F-A99A977C4926'
     const akregid = '140fe1da9e34a2be907'
     const pgid = '3207'
@@ -119,7 +118,6 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   const second = 0
 
   ;(new CronJob(`${second} ${minite} ${hour} * * *`, () => {
-
     const ak = 'CAD5CBE3-5719-4377-A803-887963031A92'
     const akregid = '1517bfd3f74e3c6ac69'
     const pgid = '3207'
