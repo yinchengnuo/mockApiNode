@@ -93,7 +93,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
     const timer = setInterval(() => {
       const today = new Date();
       const tomorrow = new Date(Date.now() + 86400000)
-      const query = `{"jxcarid":"${jxcarid}","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"19:00:00", "jtosjz":"19:30:00","jtolx":"0","nomsg":"1"}`
+      const query = `{"jxcarid":"${jxcarid}","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"15:00:00", "jtosjz":"15:30:00","jtolx":"0","nomsg":"1"}`
       const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=${pgid}&kid=${kid}&cmd=ckTimeOrder_add_proc&para=`
       if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
         if (today.getMilliseconds() < 300) {
