@@ -89,7 +89,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
     const akregid = '140fe1da9e34a2be907'
     const pgid = '3207'
     const kid = '1210'
-    const jxcarid = '1647'
+    const jxcarid = '1704'
     const timer = setInterval(() => {
       const today = new Date();
       const tomorrow = new Date(Date.now() + 86400000)
