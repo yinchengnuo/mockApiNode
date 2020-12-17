@@ -93,7 +93,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
     const timer = setInterval(() => {
       const today = new Date();
       const tomorrow = new Date(Date.now() + 86400000)
-      const query = `{"jxcarid":"${jxcarid}","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"14:00:00", "jtosjz":"14:30:00","jtolx":"0","nomsg":"1"}`
+      const query = `{"jxcarid":"${jxcarid}","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"14:30:00", "jtosjz":"15:00:00","jtolx":"0","nomsg":"1"}`
       const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=${pgid}&kid=${kid}&cmd=ckTimeOrder_add_proc&para=`
       if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
         if (today.getMilliseconds() < 300) {
@@ -111,7 +111,6 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   }, null, true)) .start()
 }
 
-
 {
   const hour = 7
   const minite = 30
@@ -127,6 +126,38 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
       const today = new Date();
       const tomorrow = new Date(Date.now() + 86400000)
       const query = `{"jxcarid":"${jxcarid}","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"15:00:00", "jtosjz":"15:30:00","jtolx":"0","nomsg":"1"}`
+      const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=${pgid}&kid=${kid}&cmd=ckTimeOrder_add_proc&para=`
+      if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
+        if (today.getMilliseconds() < 300) {
+          axios.get(`${url}${encodeURIComponent(query)}`).then(({ data }) => {
+            console.log(data)
+            if (data.Data.id) {
+              axios.get(`http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=3207&kid=1210&cmd=ckTimeOrder_add_procpay&para=%7b%22id%22%3a%22${data.Data.id}%22%2c%22coupid%22%3a%22%22%2c+%22cbdkje%22%3a%220%22%2c%22paytype%22%3a%22%e6%8a%b5%e6%89%a3%22%2c%22nomsg%22%3a%221%22%7d`)
+            }
+          })
+        } else {
+          clearInterval(timer)
+        }
+      }
+    }, 10)
+  }, null, true)) .start()
+}
+
+{
+  const hour = 7
+  const minite = 30
+  const second = 0
+
+  ;(new CronJob(`${second} ${minite} ${hour} * * *`, () => {
+    const ak = '59B4E432-D50E-4DAB-A8D0-A224EAE8E467'
+    const akregid = '190e35f7e0fbf0a3930'
+    const pgid = '3207'
+    const kid = '1208'
+    const jxcarid = '1520'
+    const timer = setInterval(() => {
+      const today = new Date();
+      const tomorrow = new Date(Date.now() + 86400000)
+      const query = `{"jxcarid":"${jxcarid}","jtorq":"2020/${tomorrow.getMonth() + 1}/${tomorrow.getDate()} 0:00:00","jtosjq":"14:00:00", "jtosjz":"14:30:00","jtolx":"0","nomsg":"1"}`
       const url = `http://yc.xiaocheku.cn/ajax/app.ashx?tm=${Date.now()}&ak=${ak}&akregid=${akregid}&cf=3&pgid=${pgid}&kid=${kid}&cmd=ckTimeOrder_add_proc&para=`
       if (today.getHours() == hour && today.getMinutes() == minite && today.getSeconds() == second) {
         if (today.getMilliseconds() < 300) {
