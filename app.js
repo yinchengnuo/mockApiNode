@@ -80,8 +80,10 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
 }
 
 {
+  // const AppID = 'wxbdbf2fb2abc393d3'
+	// const AppSecret = '3c6647ce3dd48678e8bff7ad5c54a210'
   const AppID = 'wxbdbf2fb2abc393d3'
-	const AppSecret = '3c6647ce3dd48678e8bff7ad5c54a210'
+	const AppSecret = 'fd72aeeb8f8f77811248b6e9fc3d3ee2'
   const access_token = () => {
     axios.get(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${AppID}&secret=${AppSecret}`).then(({ data: { access_token }}) => {
       axios.get(`https://9ce169de-f8e3-40f2-a6df-c391d61a7ef5.bspapp.com/http/access_token/access_token?access_token=${access_token}`)
