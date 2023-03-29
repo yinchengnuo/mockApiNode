@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "set NODE_ENV=development && npx nodemon ./app.js",
-    "push": "git add . && git commit -m 'publish' && git push gogs master --force && git push origin master --force",
-    "start": "pm2 start ./app.js --watch --name app",
-    "stop": "pm2 kill",
-    "restart": "pm2 kill && npm start",
+    "push": "git add . && git commit -m 'publish' && git push origin master --force",
+    "start": "npx pm2 start ./app.js --watch --name app",
+    "stop": "npx pm2 kill",
+    "restart": "npx pm2 kill && npm start",
     "pull": "git pull origin master --force && npm run restart"
   },
   "keywords": [],
@@ -30,6 +29,7 @@
     "koa-static": "^5.0.0",
     "koa-websocket": "^6.0.0",
     "nodemon": "^1.19.2",
+    "pm2": "^5.3.0",
     "utf-8-validate": "^5.0.2"
   },
   "devDependencies": {
