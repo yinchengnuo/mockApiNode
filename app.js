@@ -69,7 +69,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV[0] === "d") {
   app80.use(compress({ threshold: 2048 })); //gzip中间件
   
   const router80 = require('koa-router')()
-  router80.get('/', async(ctx) => ctx.redirect('https://yinchengnuo.com'))
+  // router80.get('/', async(ctx) => ctx.redirect('https://yinchengnuo.com'))
   app80.use(router80.routes()).use(router80.allowedMethods())
   
   require('./util/api.js')(app80) //api接口
